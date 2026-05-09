@@ -1,908 +1,1680 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gesso Revolution 3D | Acabamento de Alto Padrão em Drywall e Gesso</title>
-  <meta name="description" content="Empresa especializada em drywall, gesso liso, sancas, molduras decorativas e isolamento. Orçamento grátis. Qualidade e agilidade garantidas." />
-  <meta name="keywords" content="drywall, gesso liso, sancas, molduras, isolamento acústico, forro de gesso, nicho embutido, acabamento, reforma" />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="Gesso Revolution 3D | Acabamento de Alto Padrão" />
-  <meta property="og:description" content="Transforme seu ambiente com acabamento profissional em gesso e drywall." />
-  <meta property="og:type" content="website" />
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              orange: '#CC0000',
-              orangelight: '#E52222',
-              orangedark: '#AA0000',
-              dark: '#1A1A1A',
-              gray: '#3D3D3D',
-              mid: '#6B6B6B',
-              light: '#F5F3F0',
-              cream: '#FDFCFA',
-            }
-          },
-          fontFamily: {
-            display: ['Syne', 'sans-serif'],
-            body: ['DM Sans', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Decore Gesso 3D Revolution - Especialistas em Drywall, Forros 3D e Elétrica. Transformamos espaços com qualidade e elegância.">
+  <meta name="keywords" content="drywall, gesso 3D, forros, elétrica, decoração, reforma, Bahia">
+  <meta property="og:title" content="Decore Gesso 3D Revolution">
+  <meta property="og:description" content="Especialistas em Drywall, Forros 3D e Instalações Elétricas">
+  <meta property="og:type" content="website">
+  <title>Decore Gesso 3D Revolution | Drywall · Forros · Elétrica</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; }
+    /* ═══════════════════════════════════════════════
+       CSS VARIABLES & RESET
+    ═══════════════════════════════════════════════ */
+    :root {
+      --navy:        #0A1628;
+      --navy-mid:    #112244;
+      --navy-light:  #1A3560;
+      --gold:        #C9A84C;
+      --gold-light:  #E2C06A;
+      --gray-light:  #E8EDF2;
+      --purple:      #6B3FA0;
+      --purple-light:#8B5FBF;
+      --white:       #FFFFFF;
+      --whatsapp:    #25D366;
+      --transition:  all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-    html { scroll-behavior: smooth; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
 
     body {
-      font-family: 'DM Sans', sans-serif;
-      background-color: #FDFCFA;
-      color: #1A1A1A;
+      font-family: 'Raleway', sans-serif;
+      background: var(--navy);
+      color: var(--gray-light);
       overflow-x: hidden;
+      line-height: 1.7;
     }
 
-    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+    /* ═══════════════════════════════════════════════
+       TYPOGRAPHY
+    ═══════════════════════════════════════════════ */
+    h1 { font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.15; }
+    h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-style: italic; color: var(--white); }
+    h3 { font-family: 'Raleway', sans-serif; font-weight: 700; color: var(--gold-light); }
+    p  { font-weight: 300; color: var(--gray-light); }
 
-    /* ---- NAV ---- */
-    #navbar {
-      transition: background 0.35s ease, box-shadow 0.35s ease;
-    }
-    #navbar.scrolled {
-      background: rgba(253,252,250,0.97) !important;
-      box-shadow: 0 2px 24px rgba(0,0,0,0.08);
-    }
-
-    /* Mobile menu */
-    #mobile-menu {
-      transition: max-height 0.35s ease, opacity 0.3s ease;
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-    }
-    #mobile-menu.open {
-      max-height: 400px;
-      opacity: 1;
-    }
-
-    /* ---- HERO ---- */
-    .hero-bg {
-      background: linear-gradient(135deg, #0D0D0D 0%, #1A0000 50%, #3D0000 100%);
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      text-align: center;
+      margin-bottom: 1rem;
       position: relative;
     }
-    .hero-bg::before {
+    .section-title::after {
       content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(ellipse 80% 60% at 70% 50%, rgba(204,0,0,0.18) 0%, transparent 70%),
-        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      display: block;
+      width: 70px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin: 0.8rem auto 0;
     }
-    .hero-accent-line {
-      width: 4px;
-      height: 60px;
-      background: linear-gradient(to bottom, #CC0000, transparent);
-      border-radius: 4px;
-    }
-
-    /* ---- CARDS ---- */
-    .service-card {
-      border: 1px solid rgba(0,0,0,0.07);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    }
-    .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.10);
-      border-color: #CC0000;
-    }
-    .service-icon {
-      width: 52px;
-      height: 52px;
-      background: linear-gradient(135deg, #CC0000, #E52222);
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.05rem;
+      max-width: 560px;
+      margin: 0 auto 3.5rem;
+      opacity: 0.8;
     }
 
-    /* ---- DIFERENCIAIS ---- */
-    .diferencial-item {
-      transition: transform 0.25s ease;
-    }
-    .diferencial-item:hover { transform: translateY(-4px); }
-
-    /* ---- GALLERY ---- */
-    .gallery-item {
-      overflow: hidden;
-      border-radius: 12px;
-    }
-    .gallery-item img {
-      transition: transform 0.5s ease;
-    }
-    .gallery-item:hover img {
-      transform: scale(1.06);
-    }
-    .gallery-overlay {
-      background: linear-gradient(to top, rgba(26,26,26,0.7) 0%, transparent 60%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .gallery-item:hover .gallery-overlay {
-      opacity: 1;
-    }
-
-    /* ---- CTA SECTION ---- */
-    .cta-bg {
-      background: linear-gradient(135deg, #CC0000 0%, #AA0000 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-bg::before {
-      content: '';
-      position: absolute;
-      top: -60px; right: -60px;
-      width: 300px; height: 300px;
-      background: rgba(255,255,255,0.07);
-      border-radius: 50%;
-    }
-    .cta-bg::after {
-      content: '';
-      position: absolute;
-      bottom: -40px; left: 10%;
-      width: 200px; height: 200px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 50%;
-    }
-
-    /* ---- BUTTONS ---- */
-    .btn-primary {
-      background: linear-gradient(135deg, #CC0000, #E52222);
-      color: #fff;
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      border-radius: 50px;
-      padding: 14px 32px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    /* ═══════════════════════════════════════════════
+       BUTTONS
+    ═══════════════════════════════════════════════ */
+    .btn {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 0.5rem;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
       white-space: nowrap;
     }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+    }
     .btn-primary:hover {
+      background: var(--gold-light);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(204,0,0,0.45);
+      box-shadow: 0 8px 24px rgba(201,168,76,0.35);
     }
-    .btn-outline {
-      border: 2px solid #fff;
-      color: #fff;
-      font-family: 'Syne', sans-serif;
-      font-weight: 600;
-      border-radius: 50px;
-      padding: 12px 30px;
-      transition: background 0.2s ease, color 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--purple);
     }
-    .btn-outline:hover {
-      background: #fff;
-      color: #CC0000;
+    .btn-secondary:hover {
+      background: var(--purple);
+      box-shadow: 0 8px 24px rgba(107,63,160,0.4);
     }
-
-    /* ---- WHATSAPP FLOAT ---- */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      z-index: 1000;
-      width: 60px;
-      height: 60px;
-      background: #25D366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 6px 20px rgba(37,211,102,0.5);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      animation: pulse-whatsapp 2.5s infinite;
+    .btn-whatsapp {
+      background: var(--whatsapp);
+      color: var(--white);
     }
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-      box-shadow: 0 10px 30px rgba(37,211,102,0.6);
-      animation: none;
-    }
-    @keyframes pulse-whatsapp {
-      0%, 100% { box-shadow: 0 6px 20px rgba(37,211,102,0.5); }
-      50%       { box-shadow: 0 6px 30px rgba(37,211,102,0.75); }
+    .btn-whatsapp:hover {
+      background: #1ebe5d;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37,211,102,0.4);
     }
 
-    /* ---- FADE IN ON SCROLL ---- */
+    /* ═══════════════════════════════════════════════
+       REVEAL ANIMATION
+    ═══════════════════════════════════════════════ */
     .reveal {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(36px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
     }
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
     }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
-    .reveal-delay-5 { transition-delay: 0.5s; }
+    .reveal-delay-1 { transition-delay: 0.15s; }
+    .reveal-delay-2 { transition-delay: 0.3s; }
+    .reveal-delay-3 { transition-delay: 0.45s; }
 
-    /* ---- SECTION LABEL ---- */
-    .section-label {
-      display: inline-flex;
+    /* ═══════════════════════════════════════════════
+       NAVBAR
+    ═══════════════════════════════════════════════ */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1.2rem 2rem;
+      display: flex;
       align-items: center;
-      gap: 8px;
-      font-family: 'Syne', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #CC0000;
+      justify-content: space-between;
+      transition: var(--transition);
+      background: transparent;
     }
-    .section-label::before {
+    #navbar.scrolled {
+      background: rgba(10, 22, 40, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 0.8rem 2rem;
+      box-shadow: 0 2px 30px rgba(0,0,0,0.5);
+    }
+    .nav-logo {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+    .nav-logo-main {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+    }
+    .nav-logo-sub {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      font-size: 0.65rem;
+      color: var(--gold-light);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-menu a {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--gray-light);
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav-menu a::after {
       content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 2px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+    .nav-menu a:hover { color: var(--gold); }
+    .nav-menu a:hover::after { width: 100%; }
+    .nav-cta { margin-left: 1rem; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
       display: block;
       width: 24px;
       height: 2px;
-      background: #CC0000;
-      border-radius: 2px;
+      background: var(--gold);
+      transition: var(--transition);
+      transform-origin: center;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ═══════════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════════ */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #0d1f45 100%);
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+    }
+    /* Geometric SVG pattern overlay */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    /* Diagonal accent stripe */
+    #hero::after {
+      content: '';
+      position: absolute;
+      top: -20%; right: -10%;
+      width: 60%;
+      height: 140%;
+      background: linear-gradient(180deg, rgba(107,63,160,0.08) 0%, rgba(201,168,76,0.05) 100%);
+      transform: skewX(-12deg);
+      pointer-events: none;
     }
 
-    /* ---- FOOTER ---- */
-    footer a:hover { color: #CC0000; }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+    }
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      border: 1px solid rgba(107,63,160,0.5);
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 1.8rem;
+      background: rgba(107,63,160,0.1);
+    }
+    .hero-h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+    .hero-h1 em {
+      color: var(--gold);
+      font-style: italic;
+    }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      opacity: 0.85;
+      font-weight: 300;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-    /* Smooth scrollbar */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #F5F3F0; }
-    ::-webkit-scrollbar-thumb { background: #CC0000; border-radius: 3px; }
+    /* Particles */
+    .particles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: float linear infinite;
+      opacity: 0;
+    }
+    @keyframes float {
+      0%   { transform: translateY(100vh) translateX(0); opacity: 0; }
+      10%  { opacity: 0.6; }
+      90%  { opacity: 0.3; }
+      100% { transform: translateY(-10vh) translateX(30px); opacity: 0; }
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      z-index: 2;
+      animation: bounce 2s infinite;
+    }
+    .scroll-indicator span {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.5;
+      font-weight: 600;
+    }
+    .scroll-chevron {
+      width: 20px;
+      height: 20px;
+      border-right: 2px solid var(--gold);
+      border-bottom: 2px solid var(--gold);
+      transform: rotate(45deg);
+      opacity: 0.6;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ═══════════════════════════════════════════════
+       SECTIONS COMMON
+    ═══════════════════════════════════════════════ */
+    section {
+      padding: 6rem 2rem;
+    }
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .dot-bg {
+      background-image: radial-gradient(circle, rgba(201,168,76,0.04) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+
+    /* ═══════════════════════════════════════════════
+       SERVICES
+    ═══════════════════════════════════════════════ */
+    #servicos { background: var(--navy-mid); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .service-card {
+      background: var(--navy-light);
+      border: 1px solid rgba(201,168,76,0.12);
+      border-radius: 14px;
+      padding: 2.5rem 2rem;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--purple));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--gold);
+      box-shadow: 0 24px 50px rgba(201,168,76,0.12);
+    }
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 1.5rem;
+    }
+    .service-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .service-card p {
+      font-size: 0.95rem;
+      margin-bottom: 1.4rem;
+      line-height: 1.7;
+    }
+    .service-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .service-list li {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--gray-light);
+      opacity: 0.85;
+    }
+    .service-list li::before {
+      content: '✓ ';
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--purple);
+      color: var(--white);
+      padding: 4px 12px;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+
+    /* ═══════════════════════════════════════════════
+       DIFERENCIAIS
+    ═══════════════════════════════════════════════ */
+    #diferenciais {
+      background: var(--navy);
+      dot-bg: true;
+    }
+    .divider-line {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), var(--purple), var(--gold), transparent);
+      margin: 0 auto 4rem;
+      max-width: 500px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .stat-card {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      background: var(--navy-light);
+      border-radius: 14px;
+      border: 1px solid rgba(201,168,76,0.1);
+      transition: var(--transition);
+    }
+    .stat-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-6px);
+    }
+    .stat-emoji {
+      font-size: 2.2rem;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 2.6rem;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.7;
+    }
+
+    /* ═══════════════════════════════════════════════
+       PORTFOLIO
+    ═══════════════════════════════════════════════ */
+    #portfolio { background: var(--navy-mid); }
+
+    .portfolio-filters {
+      display: flex;
+      gap: 0.8rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .filter-btn {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 8px 22px;
+      border-radius: 50px;
+      border: 1px solid rgba(201,168,76,0.3);
+      background: transparent;
+      color: var(--gray-light);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--gold);
+      color: var(--navy);
+      border-color: var(--gold);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 220px;
+      gap: 1.2rem;
+    }
+    .portfolio-item {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .portfolio-item:nth-child(1) { grid-row: span 2; }
+    .portfolio-item:nth-child(5) { grid-row: span 2; }
+
+    .portfolio-bg {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease;
+    }
+    .portfolio-item:hover .portfolio-bg { transform: scale(1.06); }
+
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,22,40,0.9) 0%, transparent 60%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+    .portfolio-overlay h4 {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+    .portfolio-overlay span {
+      font-size: 0.75rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+    .lupa-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 42px;
+      height: 42px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .portfolio-item:hover .lupa-icon { opacity: 1; }
+
+    /* Lightbox */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(10,22,40,0.95);
+      backdrop-filter: blur(10px);
+      align-items: center;
+      justify-content: center;
+    }
+    #lightbox.open { display: flex; }
+    .lightbox-inner {
+      position: relative;
+      max-width: 700px;
+      width: 90%;
+      text-align: center;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -2.5rem;
+      right: 0;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.8rem;
+      cursor: pointer;
+      line-height: 1;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .lightbox-close:hover { opacity: 1; }
+    #lightbox-content {
+      width: 100%;
+      height: 420px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    #lightbox-title {
+      margin-top: 1.2rem;
+      font-family: 'Playfair Display', serif;
+      color: var(--gold);
+      font-size: 1.4rem;
+    }
+
+    /* ═══════════════════════════════════════════════
+       DEPOIMENTOS
+    ═══════════════════════════════════════════════ */
+    #depoimentos { background: var(--navy); }
+
+    .testimonial-slider {
+      position: relative;
+      max-width: 740px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .testimonial-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+    .testimonial-card {
+      min-width: 100%;
+      padding: 2.5rem;
+      background: var(--navy-light);
+      border-radius: 16px;
+      border: 1px solid rgba(201,168,76,0.12);
+      text-align: center;
+    }
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      margin: 0 auto 1.2rem;
+      border: 3px solid var(--gold);
+      overflow: hidden;
+      background: var(--navy-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .stars {
+      color: var(--gold);
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+    }
+    .testimonial-text {
+      font-size: 1.05rem;
+      font-style: italic;
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+      opacity: 0.9;
+    }
+    .testimonial-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .testimonial-role {
+      font-size: 0.8rem;
+      opacity: 0.6;
+      margin-top: 0.2rem;
+    }
+    .slider-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.8rem;
+    }
+    .slider-btn {
+      background: transparent;
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    .slider-btn:hover {
+      background: var(--gold);
+      color: var(--navy);
+    }
+    .slider-dots {
+      display: flex;
+      gap: 8px;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.3);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .dot.active { background: var(--gold); }
+
+    /* ═══════════════════════════════════════════════
+       CTA CENTRAL
+    ═══════════════════════════════════════════════ */
+    #cta-section {
+      background: linear-gradient(135deg, var(--purple) 0%, var(--navy-mid) 50%, var(--navy) 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .cta-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--white);
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .cta-subtitle {
+      font-size: 1.05rem;
+      max-width: 500px;
+      margin: 0 auto 2.5rem;
+      opacity: 0.85;
+    }
+    .btn-pulse {
+      animation: btnPulse 2.5s infinite;
+    }
+    @keyframes btnPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
+      50%       { box-shadow: 0 0 0 16px rgba(37,211,102,0); }
+    }
+
+    /* ═══════════════════════════════════════════════
+       FOOTER / CONTATO
+    ═══════════════════════════════════════════════ */
+    #contato {
+      background: var(--navy);
+      padding-top: 5rem;
+      padding-bottom: 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1.2fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+    }
+    .footer-col h4 {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.4rem;
+    }
+    .footer-logo-main {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .footer-logo-sub {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      font-size: 0.65rem;
+      color: var(--gold-light);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .footer-desc {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      opacity: 0.7;
+      margin-bottom: 1.5rem;
+    }
+    .social-links {
+      display: flex;
+      gap: 0.8rem;
+    }
+    .social-link {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+    .social-link:hover {
+      background: var(--gold);
+      color: var(--navy);
+      border-color: var(--gold);
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    .footer-links a {
+      text-decoration: none;
+      color: var(--gray-light);
+      font-size: 0.9rem;
+      opacity: 0.75;
+      transition: opacity 0.2s, color 0.2s;
+    }
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--gold);
+    }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+    }
+    .contact-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: var(--gold);
+    }
+    .contact-item p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    .contact-item a {
+      color: var(--gray-light);
+      text-decoration: none;
+      opacity: 0.8;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .contact-item a:hover { color: var(--gold); }
+
+    /* Instagram feed placeholder */
+    .insta-feed {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      margin-top: 0.5rem;
+    }
+    .insta-post {
+      aspect-ratio: 1;
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+    .insta-post:hover { opacity: 0.75; }
+    .insta-post svg { width: 100%; height: 100%; display: block; }
+
+    .footer-divider {
+      height: 1px;
+      background: rgba(201,168,76,0.12);
+      margin: 0;
+    }
+    .footer-bottom {
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      background: rgba(0,0,0,0.2);
+    }
+    .footer-bottom p {
+      font-size: 0.8rem;
+      opacity: 0.5;
+    }
+    .footer-bottom a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.8rem;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .footer-bottom a:hover { opacity: 1; }
+
+    /* ═══════════════════════════════════════════════
+       WHATSAPP FLOATING BUTTON
+    ═══════════════════════════════════════════════ */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: var(--whatsapp);
+      color: var(--white);
+      text-decoration: none;
+      padding: 14px 20px 14px 16px;
+      border-radius: 50px;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+      animation: waPulse 2.8s infinite;
+      transition: transform 0.2s ease;
+      min-height: 56px;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 32px rgba(37,211,102,0.6);
+    }
+    @keyframes waPulse {
+      0%   { box-shadow: 0 0 0 0 rgba(37,211,102,0.6); }
+      60%  { box-shadow: 0 0 0 16px rgba(37,211,102,0); }
+      100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+    }
+
+    /* ═══════════════════════════════════════════════
+       SOBRE SECTION
+    ═══════════════════════════════════════════════ */
+    #sobre {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .sobre-visual {
+      position: relative;
+    }
+    .sobre-shape {
+      width: 100%;
+      aspect-ratio: 1;
+      max-width: 420px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--navy-light), var(--navy-mid));
+      border: 1px solid rgba(201,168,76,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .sobre-shape::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg at 50% 50%,
+        transparent 0deg,
+        rgba(201,168,76,0.06) 60deg,
+        transparent 120deg,
+        rgba(107,63,160,0.05) 180deg,
+        transparent 240deg,
+        rgba(201,168,76,0.04) 300deg,
+        transparent 360deg);
+      animation: rotateGrad 20s linear infinite;
+    }
+    @keyframes rotateGrad {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    .sobre-shape-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 2rem;
+    }
+    .sobre-shape-inner .big-num {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 6rem;
+      color: var(--gold);
+      line-height: 1;
+      opacity: 0.15;
+    }
+    .sobre-shape-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .sobre-tag {
+      position: absolute;
+      bottom: -1rem;
+      right: -1rem;
+      background: var(--purple);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 10px 18px;
+      border-radius: 8px;
+    }
+    .sobre-text h2 { text-align: left; margin-bottom: 1.5rem; }
+    .sobre-text h2::after { margin: 0.8rem 0 0; }
+    .sobre-text p { margin-bottom: 1rem; }
+    .sobre-values {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .value-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--gray-light);
+    }
+    .value-item::before {
+      content: '◆';
+      color: var(--gold);
+      font-size: 0.6rem;
+      flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════════════
+       MOBILE RESPONSIVE
+    ═══════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid    { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-item:nth-child(1), .portfolio-item:nth-child(5) { grid-row: span 1; }
+      .footer-grid   { grid-template-columns: 1fr 1fr; }
+      .sobre-grid    { grid-template-columns: 1fr; }
+      .sobre-visual  { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 4rem 1.2rem; }
+
+      .nav-menu {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(10,22,40,0.98);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        z-index: 999;
+      }
+      .nav-menu.open { display: flex; }
+      .nav-menu a { font-size: 1.2rem; }
+      .nav-cta { display: none; }
+      .hamburger { display: flex; z-index: 1001; }
+      #navbar { padding: 1rem 1.2rem; }
+
+      .hero-h1 { font-size: 2.5rem; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .hero-buttons .btn { width: 100%; max-width: 320px; justify-content: center; }
+
+      .services-grid { grid-template-columns: 1fr; }
+      .stats-grid    { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .portfolio-item:nth-child(1), .portfolio-item:nth-child(5) { grid-row: span 1; }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+
+      .whatsapp-float { bottom: 1rem; right: 1rem; padding: 14px; border-radius: 50%; }
+      .whatsapp-float .wa-label { display: none; }
+    }
   </style>
 </head>
 <body>
 
-<!-- ===================== NAVBAR ===================== -->
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-transparent" role="navigation" aria-label="Menu principal">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8">
-    <div class="flex items-center justify-between h-20">
-
-      <!-- Logo -->
-      <a href="#inicio" class="flex items-center gap-3" aria-label="Gesso Revolution 3D - Página inicial">
-        <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,#CC0000,#AA0000)">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="2" y="2" width="8" height="8" rx="2" fill="white" opacity="0.9"/>
-            <rect x="12" y="2" width="8" height="8" rx="2" fill="white" opacity="0.6"/>
-            <rect x="2" y="12" width="8" height="8" rx="2" fill="white" opacity="0.6"/>
-            <rect x="12" y="12" width="8" height="8" rx="2" fill="white" opacity="0.9"/>
-          </svg>
-        </div>
-        <span class="font-display font-800" style="font-family:'Syne',sans-serif;font-weight:800;color:#1A1A1A;font-size:1rem;line-height:1.2" id="logo-text">
-          <span style="color:#CC0000">Gesso</span> Revolution <span style="color:#CC0000">3D</span>
-        </span>
+<!-- ═══════════════════ NAVBAR ═══════════════════ -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <span class="nav-logo-main">DECORE GESSO</span>
+    <span class="nav-logo-sub">3D Revolution</span>
+  </a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-menu" id="nav-menu">
+    <li><a href="#hero" onclick="closeMenu()">Home</a></li>
+    <li><a href="#servicos" onclick="closeMenu()">Serviços</a></li>
+    <li><a href="#sobre" onclick="closeMenu()">Sobre</a></li>
+    <li><a href="#portfolio" onclick="closeMenu()">Portfólio</a></li>
+    <li><a href="#contato" onclick="closeMenu()">Contato</a></li>
+    <li class="nav-cta">
+      <a href="https://wa.me/5575981321119?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" class="btn btn-whatsapp" style="padding:10px 20px;font-size:0.78rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.553 4.109 1.519 5.834L.057 23.998l6.335-1.44C8.02 23.52 9.975 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.857 0-3.585-.5-5.074-1.371l-.361-.214-3.761.857.884-3.672-.235-.376C2.516 15.546 2 13.836 2 12 2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Fale Conosco
       </a>
-
-      <!-- Desktop Nav -->
-      <ul class="hidden md:flex items-center gap-8" style="list-style:none;margin:0;padding:0">
-        <li><a href="#inicio"    class="nav-link text-sm font-medium transition-colors hover:text-brand-orange" style="color:#3D3D3D;text-decoration:none;font-family:'DM Sans',sans-serif">Início</a></li>
-        <li><a href="#servicos"  class="nav-link text-sm font-medium transition-colors hover:text-brand-orange" style="color:#3D3D3D;text-decoration:none;font-family:'DM Sans',sans-serif">Serviços</a></li>
-        <li><a href="#projetos"  class="nav-link text-sm font-medium transition-colors hover:text-brand-orange" style="color:#3D3D3D;text-decoration:none;font-family:'DM Sans',sans-serif">Projetos</a></li>
-        <li><a href="#sobre"     class="nav-link text-sm font-medium transition-colors hover:text-brand-orange" style="color:#3D3D3D;text-decoration:none;font-family:'DM Sans',sans-serif">Sobre</a></li>
-        <li><a href="#contato"   class="nav-link text-sm font-medium transition-colors hover:text-brand-orange" style="color:#3D3D3D;text-decoration:none;font-family:'DM Sans',sans-serif">Contato</a></li>
-      </ul>
-
-      <!-- CTA Button -->
-      <div class="hidden md:flex items-center gap-4">
-        <a href="https://wa.me/5534999999999?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20minha%20obra"
-           target="_blank" rel="noopener noreferrer"
-           class="btn-primary text-sm"
-           style="padding:10px 22px">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-          Orçamento Grátis
-        </a>
-      </div>
-
-      <!-- Hamburger -->
-      <button id="hamburger" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Abrir menu" aria-expanded="false">
-        <span class="ham-line block w-6 h-0.5 rounded bg-gray-800 transition-all duration-300"></span>
-        <span class="ham-line block w-6 h-0.5 rounded bg-gray-800 transition-all duration-300"></span>
-        <span class="ham-line block w-6 h-0.5 rounded bg-gray-800 transition-all duration-300"></span>
-      </button>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden bg-white rounded-2xl shadow-xl mb-4">
-      <ul class="flex flex-col py-4 px-2" style="list-style:none;margin:0;padding:16px 8px">
-        <li><a href="#inicio"   class="block px-4 py-3 rounded-xl hover:bg-red-50 text-sm font-medium" style="color:#3D3D3D;text-decoration:none;font-family:'DM Sans',sans-serif">Início</a></li>
-        <li><a href="#servicos" class="block px-4 py-3 rounded-xl hover:bg-red-50 text-sm font-medium" style="color:#3D3D3D;text-decoration:none;font-family:'DM Sans',sans-serif">Serviços</a></li>
-        <li><a href="#projetos" class="block px-4 py-3 rounded-xl hover:bg-red-50 text-sm font-medium" style="color:#3D3D3D;text-decoration:none;font-family:'DM Sans',sans-serif">Projetos</a></li>
-        <li><a href="#sobre"    class="block px-4 py-3 rounded-xl hover:bg-red-50 text-sm font-medium" style="color:#3D3D3D;text-decoration:none;font-family:'DM Sans',sans-serif">Sobre</a></li>
-        <li><a href="#contato"  class="block px-4 py-3 rounded-xl hover:bg-red-50 text-sm font-medium" style="color:#3D3D3D;text-decoration:none;font-family:'DM Sans',sans-serif">Contato</a></li>
-        <li class="px-4 pt-2 pb-1">
-          <a href="https://wa.me/5534999999999?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20minha%20obra"
-             target="_blank" rel="noopener noreferrer"
-             class="btn-primary w-full justify-center text-sm">
-            Orçamento Grátis
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
+    </li>
+  </ul>
 </nav>
 
-<!-- ===================== HERO ===================== -->
-<section id="inicio" class="hero-bg min-h-screen flex items-center relative" aria-label="Seção principal">
-  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-32 w-full">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-
-      <!-- Left Content -->
-      <div>
-        <div class="section-label mb-6" style="color:#CC0000">
-          <span style="background:#CC0000;width:24px;height:2px;display:inline-block;border-radius:2px"></span>
-          Especialistas em Acabamento
-        </div>
-
-        <h1 class="font-display text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-none mb-6" style="color:#FDFCFA">
-          Transforme<br/>
-          <span style="color:#CC0000">seu ambiente</span><br/>
-          com alto padrão
-        </h1>
-
-        <p class="text-lg leading-relaxed mb-10 max-w-lg" style="color:rgba(253,252,250,0.72);font-family:'DM Sans',sans-serif;font-weight:300">
-          Drywall, gesso liso, sancas decorativas e isolamento com qualidade superior. Sua obra nas mãos de quem realmente entende do assunto.
-        </p>
-
-        <div class="flex flex-wrap gap-4">
-          <a href="https://wa.me/5534999999999?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20minha%20obra"
-             target="_blank" rel="noopener noreferrer"
-             class="btn-primary text-base">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-            Falar no WhatsApp
-          </a>
-          <a href="#servicos" class="btn-outline text-base">
-            Ver Serviços
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-
-        <!-- Stats -->
-        <div class="flex flex-wrap gap-8 mt-14 pt-10" style="border-top:1px solid rgba(255,255,255,0.12)">
-          <div>
-            <p class="font-display font-extrabold text-3xl" style="color:#CC0000">+500</p>
-            <p class="text-sm mt-0.5" style="color:rgba(253,252,250,0.6)">Projetos entregues</p>
-          </div>
-          <div>
-            <p class="font-display font-extrabold text-3xl" style="color:#CC0000">12 anos</p>
-            <p class="text-sm mt-0.5" style="color:rgba(253,252,250,0.6)">de experiência</p>
-          </div>
-          <div>
-            <p class="font-display font-extrabold text-3xl" style="color:#CC0000">100%</p>
-            <p class="text-sm mt-0.5" style="color:rgba(253,252,250,0.6)">Satisfação garantida</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right — decorative image placeholder -->
-      <div class="hidden lg:flex justify-end">
-        <div class="relative">
-          <!-- Main placeholder image -->
-          <div class="w-[440px] h-[520px] rounded-3xl overflow-hidden" style="background:linear-gradient(135deg,rgba(232,98,42,0.2),rgba(61,45,26,0.5))">
-            <img
-              src="https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=880&auto=format&fit=crop&q=60"
-              alt="Acabamento em gesso de alto padrão em sala de estar moderna"
-              class="w-full h-full object-cover opacity-80"
-              loading="eager"
-            />
-          </div>
-          <!-- Floating badge -->
-          <div class="absolute -bottom-6 -left-10 bg-white rounded-2xl shadow-2xl px-6 py-4 flex items-center gap-4" style="min-width:220px">
-            <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,#CC0000,#E52222)">
-              <svg width="22" height="22" fill="white" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-            </div>
-            <div>
-              <p class="font-display font-bold text-sm" style="color:#1A1A1A">Garantia de 5 anos</p>
-              <p class="text-xs mt-0.5" style="color:#6B6B6B">em todos os serviços</p>
-            </div>
-          </div>
-          <!-- Decorative dots -->
-          <div class="absolute -top-6 -right-6 grid grid-cols-4 gap-2" aria-hidden="true">
-            <script>for(let i=0;i<16;i++)document.write('<div style="width:6px;height:6px;border-radius:50%;background:rgba(204,0,0,0.35)"></div>')</script>
-          </div>
-        </div>
-      </div>
-
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section id="hero">
+  <div class="particles" id="particles"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ Especialistas em Acabamentos Premium</div>
+    <h1 class="hero-h1">Transformamos Espaços<br>em <em>Arte</em></h1>
+    <p class="hero-subtitle">Especialistas em Drywall, Forros e Elétrica com acabamento 3D que eleva qualquer ambiente ao próximo nível.</p>
+    <div class="hero-buttons">
+      <a href="#servicos" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Ver Serviços
+      </a>
+      <a href="https://wa.me/5575981321119?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" class="btn btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.553 4.109 1.519 5.834L.057 23.998l6.335-1.44C8.02 23.52 9.975 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.857 0-3.585-.5-5.074-1.371l-.361-.214-3.761.857.884-3.672-.235-.376C2.516 15.546 2 13.836 2 12 2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Orçamento Grátis
+      </a>
     </div>
   </div>
-  <!-- Scroll indicator -->
-  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce" aria-hidden="true">
-    <p class="text-xs" style="color:rgba(253,252,250,0.4);font-family:'DM Sans',sans-serif;letter-spacing:0.08em">ROLE PARA VER</p>
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(253,252,250,0.4)" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-chevron"></div>
   </div>
 </section>
 
-<!-- ===================== SERVIÇOS ===================== -->
-<section id="servicos" class="py-28 px-6 lg:px-8" style="background:#FDFCFA" aria-label="Nossos serviços">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-16 reveal">
-      <div class="section-label mb-4 justify-center">O que fazemos</div>
-      <h2 class="font-display font-extrabold text-4xl lg:text-5xl mb-4" style="color:#1A1A1A">
-        Nossos <span style="color:#CC0000">Serviços</span>
-      </h2>
-      <p class="max-w-xl mx-auto text-lg" style="color:#6B6B6B;font-family:'DM Sans',sans-serif;font-weight:300">
-        Soluções completas em gesso e drywall para residências, comércios e projetos corporativos.
-      </p>
+<!-- ═══════════════════ SERVIÇOS ═══════════════════ -->
+<section id="servicos" class="dot-bg">
+  <div class="container">
+    <h2 class="section-title reveal">Nossos Serviços</h2>
+    <p class="section-subtitle reveal reveal-delay-1">Soluções completas em construção e acabamento com padrão premium e execução impecável.</p>
+    <div class="services-grid">
+
+      <!-- CARD DRYWALL -->
+      <div class="service-card reveal reveal-delay-1">
+        <svg class="service-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="10" width="50" height="8" rx="2" fill="none" stroke="#C9A84C" stroke-width="2"/>
+          <rect x="5" y="26" width="50" height="8" rx="2" fill="none" stroke="#C9A84C" stroke-width="2"/>
+          <rect x="5" y="42" width="50" height="8" rx="2" fill="none" stroke="#C9A84C" stroke-width="2"/>
+          <line x1="20" y1="10" x2="20" y2="18" stroke="#C9A84C" stroke-width="1.5"/>
+          <line x1="40" y1="10" x2="40" y2="18" stroke="#C9A84C" stroke-width="1.5"/>
+          <line x1="30" y1="26" x2="30" y2="34" stroke="#C9A84C" stroke-width="1.5"/>
+          <line x1="15" y1="42" x2="15" y2="50" stroke="#C9A84C" stroke-width="1.5"/>
+          <line x1="45" y1="42" x2="45" y2="50" stroke="#C9A84C" stroke-width="1.5"/>
+        </svg>
+        <h3>Drywall</h3>
+        <p>Paredes e divisórias de alta precisão com acabamento impecável. Soluções modernas, leves e com excelente isolamento acústico e térmico.</p>
+        <ul class="service-list">
+          <li>Divisórias internas</li>
+          <li>Forros de drywall</li>
+          <li>Revestimentos</li>
+        </ul>
+      </div>
+
+      <!-- CARD FORROS E GESSO 3D -->
+      <div class="service-card reveal reveal-delay-2">
+        <span class="badge">✦ Destaque</span>
+        <svg class="service-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 40 Q20 20 30 30 Q40 40 50 20" stroke="#C9A84C" stroke-width="2" fill="none"/>
+          <path d="M10 46 Q20 26 30 36 Q40 46 50 26" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.5"/>
+          <circle cx="30" cy="30" r="4" fill="#C9A84C" opacity="0.3"/>
+          <circle cx="15" cy="38" r="2.5" fill="#C9A84C" opacity="0.4"/>
+          <circle cx="45" cy="25" r="2.5" fill="#C9A84C" opacity="0.4"/>
+          <rect x="5" y="48" width="50" height="4" rx="1" fill="#C9A84C" opacity="0.2"/>
+        </svg>
+        <h3>Forros &amp; Gesso 3D</h3>
+        <p>Forros decorativos e painéis 3D que transformam tetos e paredes em obras de arte. Design exclusivo para ambientes únicos e sofisticados.</p>
+        <ul class="service-list">
+          <li>Gesso 3D</li>
+          <li>Forros modulares</li>
+          <li>Painéis decorativos</li>
+        </ul>
+      </div>
+
+      <!-- CARD ELÉTRICA -->
+      <div class="service-card reveal reveal-delay-3">
+        <svg class="service-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="33,5 18,32 28,32 27,55 42,28 32,28" fill="#C9A84C" opacity="0.8"/>
+          <circle cx="30" cy="30" r="22" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.3"/>
+          <circle cx="30" cy="30" r="15" stroke="#C9A84C" stroke-width="1" opacity="0.2"/>
+        </svg>
+        <h3>Instalações Elétricas</h3>
+        <p>Instalações elétricas completas com segurança e conformidade com as normas ABNT. Do projeto à execução, com garantia total.</p>
+        <ul class="service-list">
+          <li>Instalações residenciais</li>
+          <li>Quadros elétricos</li>
+          <li>Automação</li>
+        </ul>
+      </div>
+
     </div>
+  </div>
+</section>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-      <!-- Card 1: Drywall -->
-      <article class="service-card bg-white rounded-2xl p-8 reveal">
-        <div class="service-icon mb-6" aria-hidden="true">
-          <svg width="26" height="26" fill="white" viewBox="0 0 24 24"><path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h10v10H7V7zm2 2v6h6V9H9z"/></svg>
+<!-- ═══════════════════ SOBRE ═══════════════════ -->
+<section id="sobre">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="sobre-visual reveal">
+        <div class="sobre-shape">
+          <div class="sobre-shape-inner">
+            <div class="big-num">3D</div>
+            <div class="sobre-shape-icon">
+              <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                <path d="M40 10 L70 25 L70 55 L40 70 L10 55 L10 25 Z" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.6"/>
+                <path d="M40 10 L40 70" stroke="#C9A84C" stroke-width="1" opacity="0.3"/>
+                <path d="M10 25 L70 55" stroke="#C9A84C" stroke-width="1" opacity="0.3"/>
+                <path d="M10 55 L70 25" stroke="#C9A84C" stroke-width="1" opacity="0.3"/>
+                <circle cx="40" cy="40" r="8" fill="#C9A84C" opacity="0.5"/>
+              </svg>
+            </div>
+          </div>
+          <div class="sobre-tag">8+ anos de experiência</div>
         </div>
-        <h3 class="font-display font-bold text-xl mb-3" style="color:#1A1A1A">Drywall (Paredes e Forros)</h3>
-        <p class="leading-relaxed mb-5" style="color:#6B6B6B;font-family:'DM Sans',sans-serif;font-weight:300;font-size:0.95rem">
-          Instalação de paredes e forros em drywall com precisão e velocidade. Ideal para divisórias, quartos, salas e ambientes comerciais. Acabamento perfeito e limpo.
-        </p>
-        <ul style="list-style:none;padding:0;margin:0;color:#3D3D3D;font-family:'DM Sans',sans-serif;font-size:0.85rem">
-          <li class="flex items-center gap-2 py-1"><span style="color:#CC0000">✓</span> Paredes divisórias</li>
-          <li class="flex items-center gap-2 py-1"><span style="color:#CC0000">✓</span> Forros modulares e curvos</li>
-          <li class="flex items-center gap-2 py-1"><span style="color:#CC0000">✓</span> Resistente a umidade (RU)</li>
-        </ul>
-      </article>
-
-      <!-- Card 2: Gesso Liso -->
-      <article class="service-card bg-white rounded-2xl p-8 reveal reveal-delay-1">
-        <div class="service-icon mb-6" aria-hidden="true">
-          <svg width="26" height="26" fill="white" viewBox="0 0 24 24"><path d="M21 6.5l-4-4-9.5 9.5-2.5 6.5 6.5-2.5L21 6.5zm-11 11.5l-2.5-2.5 1-2.5L11 15.5l-1 2.5zm8.5-12l-5.5 5.5-1.5-1.5 5.5-5.5 1.5 1.5z"/></svg>
+      </div>
+      <div class="sobre-text">
+        <h2 class="section-title reveal" style="text-align:left;margin-bottom:1.5rem;">Quem Somos</h2>
+        <p class="reveal reveal-delay-1">A <strong style="color:var(--gold)">Decore Gesso 3D Revolution</strong> é uma empresa especializada em transformar ambientes através de soluções criativas e duráveis em drywall, gesso 3D e instalações elétricas.</p>
+        <p class="reveal reveal-delay-2" style="margin-top:1rem;">Com mais de 8 anos de atuação no mercado, entregamos projetos residenciais e comerciais com excelência técnica e compromisso com o prazo e a satisfação do cliente.</p>
+        <div class="sobre-values reveal reveal-delay-2">
+          <div class="value-item">Qualidade Premium</div>
+          <div class="value-item">Prazo Garantido</div>
+          <div class="value-item">Materiais Certificados</div>
+          <div class="value-item">Equipe Especializada</div>
+          <div class="value-item">Projetos Personalizados</div>
+          <div class="value-item">Atendimento 24h</div>
         </div>
-        <h3 class="font-display font-bold text-xl mb-3" style="color:#1A1A1A">Gesso Liso (Alvenaria)</h3>
-        <p class="leading-relaxed mb-5" style="color:#6B6B6B;font-family:'DM Sans',sans-serif;font-weight:300;font-size:0.95rem">
-          Aplicação de gesso liso em alvenaria para um acabamento suave e impecável. Eleva a estética dos ambientes e prepara a superfície para pintura premium.
-        </p>
-        <ul style="list-style:none;padding:0;margin:0;color:#3D3D3D;font-family:'DM Sans',sans-serif;font-size:0.85rem">
-          <li class="flex items-center gap-2 py-1"><span style="color:#CC0000">✓</span> Paredes e tetos internos</li>
-          <li class="flex items-center gap-2 py-1"><span style="color:#CC0000">✓</span> Nivelamento e desempenamento</li>
-          <li class="flex items-center gap-2 py-1"><span style="color:#CC0000">✓</span> Superfície lisa e duradoura</li>
-        </ul>
-      </article>
-
-      <!-- Card 3: Sancas e Molduras -->
-      <article class="service-card bg-white rounded-2xl p-8 reveal reveal-delay-2">
-        <div class="service-icon mb-6" aria-hidden="true">
-          <svg width="26" height="26" fill="white" viewBox="0 0 24 24"><path d="M12 3C6.48 3 2 7.48 2 13h2c0-4.42 3.58-8 8-8s8 3.58 8 8h2c0-5.52-4.48-10-10-10zm0 4c-3.31 0-6 2.69-6 6h2c0-2.21 1.79-4 4-4s4 1.79 4 4h2c0-3.31-2.69-6-6-6zm0 4a2 2 0 100 4 2 2 0 000-4zM3 15h3v2H3v-2zm15 0h3v2h-3v-2z"/></svg>
+        <div class="reveal reveal-delay-3">
+          <a href="https://wa.me/5575981321119?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20empresa." target="_blank" class="btn btn-primary">Falar com a Equipe</a>
         </div>
-        <h3 class="font-display font-bold text-xl mb-3" style="color:#1A1A1A">Sancas e Molduras Decorativas</h3>
-        <p class="leading-relaxed mb-5" style="color:#6B6B6B;font-family:'DM Sans',sans-serif;font-weight:300;font-size:0.95rem">
-          Projeto e execução de sancas abertas, fechadas e molduras decorativas que agregam sofisticação e valorizam qualquer ambiente residencial ou comercial.
-        </p>
-        <ul style="list-style:none;padding:0;margin:0;color:#3D3D3D;font-family:'DM Sans',sans-serif;font-size:0.85rem">
-          <li class="flex items-center gap-2 py-1"><span style="color:#CC0000">✓</span> Sancas abertas e fechadas</li>
-          <li class="flex items-center gap-2 py-1"><span style="color:#CC0000">✓</span> Molduras clássicas e modernas</li>
-          <li class="flex items-center gap-2 py-1"><span style="color:#CC0000">✓</span> Curvas e formatos sob medida</li>
-        </ul>
-      </article>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <!-- Card 4: Isolamento -->
-      <article class="service-card bg-white rounded-2xl p-8 reveal reveal-delay-3">
-        <div class="service-icon mb-6" aria-hidden="true">
-          <svg width="26" height="26" fill="white" viewBox="0 0 24 24"><path d="M12 3a9 9 0 100 18A9 9 0 0012 3zm0 2a7 7 0 110 14A7 7 0 0112 5zm0 2a5 5 0 100 10A5 5 0 0012 7zm0 2a3 3 0 110 6A3 3 0 0112 9z"/></svg>
+<!-- ═══════════════════ DIFERENCIAIS ═══════════════════ -->
+<section id="diferenciais" style="background:var(--navy-mid);">
+  <div class="container">
+    <div class="divider-line"></div>
+    <h2 class="section-title reveal">Por Que Nos Escolher?</h2>
+    <p class="section-subtitle reveal reveal-delay-1">Resultados que falam mais alto que promessas.</p>
+    <div class="stats-grid">
+      <div class="stat-card reveal reveal-delay-1">
+        <span class="stat-emoji">🏆</span>
+        <div class="stat-number" data-target="500">0</div>
+        <div class="stat-label">Projetos Realizados</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-2">
+        <span class="stat-emoji">⏱</span>
+        <div class="stat-number" data-target="8">0</div>
+        <div class="stat-label">Anos de Experiência</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-3">
+        <span class="stat-emoji">💎</span>
+        <div class="stat-number" data-target="100">0</div>
+        <div class="stat-label">% Satisfação</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-3">
+        <span class="stat-emoji">🔧</span>
+        <div class="stat-number" data-target="24">0</div>
+        <div class="stat-label">H Suporte</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PORTFOLIO ═══════════════════ -->
+<section id="portfolio" class="dot-bg">
+  <div class="container">
+    <h2 class="section-title reveal">Nosso Portfólio</h2>
+    <p class="section-subtitle reveal reveal-delay-1">Cada projeto é uma obra única. Confira alguns dos nossos trabalhos.</p>
+    <div class="portfolio-filters reveal reveal-delay-2">
+      <button class="filter-btn active" data-filter="todos">Todos</button>
+      <button class="filter-btn" data-filter="drywall">Drywall</button>
+      <button class="filter-btn" data-filter="forros">Forros 3D</button>
+      <button class="filter-btn" data-filter="eletrica">Elétrica</button>
+    </div>
+    <div class="portfolio-grid reveal reveal-delay-3" id="portfolio-grid">
+
+      <div class="portfolio-item" data-cat="forros" data-title="Forro 3D Sala de Estar" onclick="openLightbox(0)">
+        <svg class="portfolio-bg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#1A3560"/>
+              <stop offset="50%" style="stop-color:#0A1628"/>
+              <stop offset="100%" style="stop-color:#6B3FA0"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="400" fill="url(#g1)"/>
+          <path d="M0 200 Q100 100 200 200 Q300 300 400 200" stroke="#C9A84C" stroke-width="2" fill="none" opacity="0.4"/>
+          <path d="M0 150 Q100 50 200 150 Q300 250 400 150" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.25"/>
+          <path d="M0 250 Q100 150 200 250 Q300 350 400 250" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.25"/>
+          <circle cx="200" cy="200" r="80" stroke="#C9A84C" stroke-width="1" fill="none" opacity="0.15"/>
+          <circle cx="200" cy="200" r="40" fill="#C9A84C" opacity="0.08"/>
+          <text x="200" y="370" text-anchor="middle" fill="#C9A84C" font-size="11" opacity="0.5" font-family="Raleway,sans-serif">GESSO 3D</text>
+        </svg>
+        <svg class="lupa-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <div class="portfolio-overlay"><h4>Forro 3D Sala de Estar</h4><span>Forros 3D</span></div>
+      </div>
+
+      <div class="portfolio-item" data-cat="drywall" data-title="Divisória Drywall Office" onclick="openLightbox(1)">
+        <svg class="portfolio-bg" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#112244"/>
+              <stop offset="100%" style="stop-color:#1A3560"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="220" fill="url(#g2)"/>
+          <rect x="50" y="30" width="300" height="8" rx="2" fill="#C9A84C" opacity="0.3"/>
+          <rect x="50" y="56" width="300" height="8" rx="2" fill="#C9A84C" opacity="0.2"/>
+          <rect x="50" y="82" width="300" height="8" rx="2" fill="#C9A84C" opacity="0.15"/>
+          <rect x="50" y="108" width="300" height="8" rx="2" fill="#C9A84C" opacity="0.2"/>
+          <rect x="50" y="134" width="300" height="8" rx="2" fill="#C9A84C" opacity="0.3"/>
+          <line x1="140" y1="30" x2="140" y2="142" stroke="#C9A84C" stroke-width="1" opacity="0.2"/>
+          <line x1="260" y1="30" x2="260" y2="142" stroke="#C9A84C" stroke-width="1" opacity="0.2"/>
+          <text x="200" y="190" text-anchor="middle" fill="#C9A84C" font-size="11" opacity="0.5" font-family="Raleway,sans-serif">DRYWALL</text>
+        </svg>
+        <svg class="lupa-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <div class="portfolio-overlay"><h4>Divisória Office Premium</h4><span>Drywall</span></div>
+      </div>
+
+      <div class="portfolio-item" data-cat="eletrica" data-title="Painel Elétrico Residencial" onclick="openLightbox(2)">
+        <svg class="portfolio-bg" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g3" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#0A1628"/>
+              <stop offset="100%" style="stop-color:#2a1060"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="220" fill="url(#g3)"/>
+          <polygon points="210,30 175,110 205,110 200,190 235,110 205,110" fill="#C9A84C" opacity="0.6"/>
+          <circle cx="210" cy="110" r="60" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="5 5" fill="none" opacity="0.25"/>
+          <circle cx="210" cy="110" r="90" stroke="#C9A84C" stroke-width="1" stroke-dasharray="8 8" fill="none" opacity="0.12"/>
+          <text x="200" y="200" text-anchor="middle" fill="#C9A84C" font-size="11" opacity="0.5" font-family="Raleway,sans-serif">ELÉTRICA</text>
+        </svg>
+        <svg class="lupa-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <div class="portfolio-overlay"><h4>Painel Elétrico Residencial</h4><span>Elétrica</span></div>
+      </div>
+
+      <div class="portfolio-item" data-cat="forros" data-title="Rebaixo c/ LED Integrado" onclick="openLightbox(3)">
+        <svg class="portfolio-bg" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#1A3560"/>
+              <stop offset="60%" style="stop-color:#0d1f45"/>
+              <stop offset="100%" style="stop-color:#C9A84C" stop-opacity="0.3"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="220" fill="url(#g4)"/>
+          <ellipse cx="200" cy="110" rx="160" ry="60" stroke="#E2C06A" stroke-width="2" fill="none" opacity="0.4"/>
+          <ellipse cx="200" cy="110" rx="110" ry="40" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.3"/>
+          <ellipse cx="200" cy="110" rx="60" ry="20" fill="#C9A84C" opacity="0.12"/>
+          <circle cx="100" cy="80" r="4" fill="#E2C06A" opacity="0.6"/>
+          <circle cx="300" cy="80" r="4" fill="#E2C06A" opacity="0.6"/>
+          <circle cx="100" cy="140" r="4" fill="#E2C06A" opacity="0.6"/>
+          <circle cx="300" cy="140" r="4" fill="#E2C06A" opacity="0.6"/>
+          <text x="200" y="200" text-anchor="middle" fill="#C9A84C" font-size="11" opacity="0.5" font-family="Raleway,sans-serif">FORRO LED</text>
+        </svg>
+        <svg class="lupa-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <div class="portfolio-overlay"><h4>Rebaixo com LED Integrado</h4><span>Forros 3D</span></div>
+      </div>
+
+      <div class="portfolio-item" data-cat="drywall" data-title="Parede Drywall Residencial" onclick="openLightbox(4)">
+        <svg class="portfolio-bg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#112244"/>
+              <stop offset="100%" style="stop-color:#0A1628"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="400" fill="url(#g5)"/>
+          <rect x="20" y="20" width="170" height="170" rx="4" fill="#C9A84C" opacity="0.06"/>
+          <rect x="210" y="20" width="170" height="170" rx="4" fill="#C9A84C" opacity="0.04"/>
+          <rect x="20" y="210" width="170" height="170" rx="4" fill="#C9A84C" opacity="0.04"/>
+          <rect x="210" y="210" width="170" height="170" rx="4" fill="#C9A84C" opacity="0.08"/>
+          <line x1="200" y1="0" x2="200" y2="400" stroke="#C9A84C" stroke-width="1.5" opacity="0.15"/>
+          <line x1="0" y1="200" x2="400" y2="200" stroke="#C9A84C" stroke-width="1.5" opacity="0.15"/>
+          <text x="200" y="380" text-anchor="middle" fill="#C9A84C" font-size="11" opacity="0.5" font-family="Raleway,sans-serif">DRYWALL PREMIUM</text>
+        </svg>
+        <svg class="lupa-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <div class="portfolio-overlay"><h4>Parede Drywall Premium</h4><span>Drywall</span></div>
+      </div>
+
+      <div class="portfolio-item" data-cat="eletrica" data-title="Automação Residencial" onclick="openLightbox(5)">
+        <svg class="portfolio-bg" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g6" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#1a0a2e"/>
+              <stop offset="100%" style="stop-color:#112244"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="220" fill="url(#g6)"/>
+          <circle cx="200" cy="110" r="70" stroke="#6B3FA0" stroke-width="2" fill="none" opacity="0.5"/>
+          <circle cx="200" cy="110" r="50" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.4"/>
+          <circle cx="200" cy="110" r="30" fill="#6B3FA0" opacity="0.2"/>
+          <circle cx="200" cy="110" r="10" fill="#C9A84C" opacity="0.5"/>
+          <line x1="200" y1="40" x2="200" y2="70" stroke="#C9A84C" stroke-width="1.5" opacity="0.6"/>
+          <line x1="270" y1="110" x2="250" y2="110" stroke="#C9A84C" stroke-width="1.5" opacity="0.6"/>
+          <line x1="130" y1="110" x2="150" y2="110" stroke="#C9A84C" stroke-width="1.5" opacity="0.6"/>
+          <text x="200" y="200" text-anchor="middle" fill="#C9A84C" font-size="11" opacity="0.5" font-family="Raleway,sans-serif">AUTOMAÇÃO</text>
+        </svg>
+        <svg class="lupa-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <div class="portfolio-overlay"><h4>Automação Residencial</h4><span>Elétrica</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <div id="lightbox-content"></div>
+    <h3 id="lightbox-title"></h3>
+  </div>
+</div>
+
+<!-- ═══════════════════ DEPOIMENTOS ═══════════════════ -->
+<section id="depoimentos" style="background:var(--navy-mid);">
+  <div class="container">
+    <h2 class="section-title reveal">O Que Dizem Nossos Clientes</h2>
+    <p class="section-subtitle reveal reveal-delay-1">A satisfação de quem confiou no nosso trabalho é o nosso maior prêmio.</p>
+    <div class="testimonial-slider reveal reveal-delay-2">
+      <div class="testimonial-track" id="testimonial-track">
+
+        <div class="testimonial-card">
+          <div class="avatar">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="16" r="8" fill="#C9A84C" opacity="0.6"/><path d="M4 36c0-8.837 7.163-16 16-16s16 7.163 16 16" fill="#C9A84C" opacity="0.3"/></svg>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"O trabalho ficou incrível! O gesso 3D do meu apartamento superou todas as expectativas. Equipe pontual, profissional e com acabamento perfeito. Recomendo 100%!"</p>
+          <div class="testimonial-name">Ana Carla Souza</div>
+          <div class="testimonial-role">Arquiteta — Salvador, BA</div>
         </div>
-        <h3 class="font-display font-bold text-xl mb-3" style="color:#1A1A1A">Isolamento Térmico e Acústico</h3>
-        <p class="leading-relaxed mb-5" style="color:#6B6B6B;font-family:'DM Sans',sans-serif;font-weight:300;font-size:0.95rem">
-          Soluções eficientes de isolamento que garantem conforto térmico e privacidade acústica. Perfeito para home theaters, escritórios e quartos.
-        </p>
-        <ul style="list-style:none;padding:0;margin:0;color:#3D3D3D;font-family:'DM Sans',sans-serif;font-size:0.85rem">
-          <li class="flex items-center gap-2 py-1"><span style="color:#CC0000">✓</span> Lã de rocha e vidro</li>
-          <li class="flex items-center gap-2 py-1"><span style="color:#CC0000">✓</span> Redução de ruído externo</li>
-          <li class="flex items-center gap-2 py-1"><span style="color:#CC0000">✓</span> Economia de energia</li>
-        </ul>
-      </article>
 
-      <!-- Card 5: Nichos e Iluminação -->
-      <article class="service-card bg-white rounded-2xl p-8 reveal reveal-delay-4">
-        <div class="service-icon mb-6" aria-hidden="true">
-          <svg width="26" height="26" fill="white" viewBox="0 0 24 24"><path d="M9 2v6H7v2h2v12h6V10h2V8h-2V2H9zm4 2v4h-2V4h2zM7 21H5v-2h2v2zm12 0h-2v-2h2v2z"/><circle cx="12" cy="14" r="2"/></svg>
+        <div class="testimonial-card">
+          <div class="avatar">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="16" r="8" fill="#6B3FA0" opacity="0.7"/><path d="M4 36c0-8.837 7.163-16 16-16s16 7.163 16 16" fill="#6B3FA0" opacity="0.4"/></svg>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Contratamos para o drywall e a parte elétrica do nosso escritório. Serviço de primeira, prazo cumprido e preço justo. Com certeza voltaremos a contratar!"</p>
+          <div class="testimonial-name">Roberto Menezes</div>
+          <div class="testimonial-role">Empresário — Feira de Santana, BA</div>
         </div>
-        <h3 class="font-display font-bold text-xl mb-3" style="color:#1A1A1A">Nichos e Iluminação Embutida</h3>
-        <p class="leading-relaxed mb-5" style="color:#6B6B6B;font-family:'DM Sans',sans-serif;font-weight:300;font-size:0.95rem">
-          Criação de nichos embutidos e passagem de iluminação indireta em sancas e forros. Design funcional que transforma e personaliza o espaço.
-        </p>
-        <ul style="list-style:none;padding:0;margin:0;color:#3D3D3D;font-family:'DM Sans',sans-serif;font-size:0.85rem">
-          <li class="flex items-center gap-2 py-1"><span style="color:#CC0000">✓</span> Nichos em parede e banheiro</li>
-          <li class="flex items-center gap-2 py-1"><span style="color:#CC0000">✓</span> Iluminação indireta em LED</li>
-          <li class="flex items-center gap-2 py-1"><span style="color:#CC0000">✓</span> Caixas de sombra e trilhos</li>
-        </ul>
-      </article>
 
-      <!-- Card 6: CTA card -->
-      <article class="rounded-2xl p-8 flex flex-col justify-between reveal reveal-delay-5" style="background:linear-gradient(135deg,#1A1A1A,#3D0000)">
-        <div>
-          <p class="font-display font-extrabold text-2xl mb-4" style="color:#FDFCFA">Não encontrou o que precisa?</p>
-          <p class="text-sm leading-relaxed" style="color:rgba(253,252,250,0.65);font-family:'DM Sans',sans-serif;font-weight:300">
-            Fale conosco e elaboramos um orçamento 100% personalizado para sua obra.
+        <div class="testimonial-card">
+          <div class="avatar">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="16" r="8" fill="#E2C06A" opacity="0.7"/><path d="M4 36c0-8.837 7.163-16 16-16s16 7.163 16 16" fill="#E2C06A" opacity="0.3"/></svg>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Meu salão ficou outro com o forro rebaixado e os painéis 3D! Todo mundo pergunta quem fez. A Decore Gesso 3D Revolution transformou completamente meu negócio."</p>
+          <div class="testimonial-name">Fernanda Lima</div>
+          <div class="testimonial-role">Proprietária de Salão — Itabuna, BA</div>
+        </div>
+
+      </div>
+      <div class="slider-nav">
+        <button class="slider-btn" id="prev-btn" onclick="changeSlide(-1)">&#8592;</button>
+        <div class="slider-dots" id="slider-dots">
+          <div class="dot active" onclick="goToSlide(0)"></div>
+          <div class="dot" onclick="goToSlide(1)"></div>
+          <div class="dot" onclick="goToSlide(2)"></div>
+        </div>
+        <button class="slider-btn" id="next-btn" onclick="changeSlide(1)">&#8594;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CTA CENTRAL ═══════════════════ -->
+<section id="cta-section">
+  <div class="container" style="position:relative;z-index:1;text-align:center;">
+    <div class="reveal">
+      <div class="hero-badge" style="margin-bottom:1.5rem;">✦ Atendimento Rápido</div>
+      <h2 class="cta-title">Pronto para transformar<br>seu espaço?</h2>
+      <p class="cta-subtitle">Entre em contato agora e receba um orçamento gratuito. Nossa equipe responde em minutos!</p>
+      <a href="https://wa.me/5575981321119?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" class="btn btn-whatsapp btn-pulse" style="font-size:1rem;padding:18px 44px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.553 4.109 1.519 5.834L.057 23.998l6.335-1.44C8.02 23.52 9.975 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.857 0-3.585-.5-5.074-1.371l-.361-.214-3.761.857.884-3.672-.235-.376C2.516 15.546 2 13.836 2 12 2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Solicitar Orçamento Agora
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer id="contato">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Col 1: Logo + Desc -->
+      <div class="footer-col">
+        <div class="footer-logo-main">DECORE GESSO</div>
+        <span class="footer-logo-sub">3D Revolution</span>
+        <p class="footer-desc">Especialistas em Drywall, Forros 3D e Instalações Elétricas. Transformamos ambientes com qualidade, criatividade e compromisso.</p>
+        <div class="social-links">
+          <a href="https://instagram.com/decore3d_revolution" target="_blank" class="social-link" title="Instagram @decore3d_revolution">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://wa.me/5575981321119?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" class="social-link" title="WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.553 4.109 1.519 5.834L.057 23.998l6.335-1.44C8.02 23.52 9.975 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.857 0-3.585-.5-5.074-1.371l-.361-.214-3.761.857.884-3.672-.235-.376C2.516 15.546 2 13.836 2 12 2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Links -->
+      <div class="footer-col">
+        <h4>Links Rápidos</h4>
+        <ul class="footer-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#sobre">Sobre Nós</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+        <div style="margin-top:2rem;">
+          <h4>Instagram</h4>
+          <div class="insta-feed">
+            <div class="insta-post"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="#1A3560"/><path d="M10 30 Q20 10 30 30 Q40 50 50 30" stroke="#C9A84C" stroke-width="2" fill="none" opacity="0.7"/></svg></div>
+            <div class="insta-post"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="#2a1060"/><polygon points="30,10 18,40 30,34 42,40" fill="#C9A84C" opacity="0.6"/></svg></div>
+            <div class="insta-post"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="#112244"/><rect x="10" y="15" width="40" height="6" rx="1" fill="#C9A84C" opacity="0.4"/><rect x="10" y="27" width="40" height="6" rx="1" fill="#C9A84C" opacity="0.3"/><rect x="10" y="39" width="40" height="6" rx="1" fill="#C9A84C" opacity="0.4"/></svg></div>
+            <div class="insta-post"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="#1A3560"/><ellipse cx="30" cy="30" rx="20" ry="12" stroke="#C9A84C" stroke-width="2" fill="none" opacity="0.5"/><circle cx="30" cy="30" r="5" fill="#C9A84C" opacity="0.6"/></svg></div>
+            <div class="insta-post"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="#0A1628"/><circle cx="30" cy="30" r="18" stroke="#6B3FA0" stroke-width="2" fill="none" opacity="0.6"/><circle cx="30" cy="30" r="8" fill="#C9A84C" opacity="0.4"/></svg></div>
+            <div class="insta-post"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="#112244"/><path d="M10 50 L30 10 L50 50" stroke="#C9A84C" stroke-width="2" fill="none" opacity="0.5"/><line x1="18" y1="35" x2="42" y2="35" stroke="#C9A84C" stroke-width="1.5" opacity="0.4"/></svg></div>
+          </div>
+          <a href="https://instagram.com/decore3d_revolution" target="_blank" class="btn btn-secondary" style="margin-top:1rem;padding:10px 20px;font-size:0.75rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            @decore3d_revolution
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 3: Contato -->
+      <div class="footer-col">
+        <h4>Fale Conosco</h4>
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.62 19.79 19.79 0 01.99 1a2 2 0 012-2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 6.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14v2.92z"/></svg>
+          <div><a href="https://wa.me/5575981321119" target="_blank">(75) 98132-1119</a></div>
+        </div>
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <div><a href="https://instagram.com/decore3d_revolution" target="_blank">@decore3d_revolution</a></div>
+        </div>
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><p>Bahia, Brasil</p></div>
+        </div>
+        <div style="margin-top:2rem;">
+          <h4>Horário de Atendimento</h4>
+          <p style="font-size:0.88rem;opacity:0.7;line-height:1.9;">
+            Segunda a Sexta: 8h às 18h<br>
+            Sábado: 8h às 13h<br>
+            <span style="color:var(--gold);font-weight:600;">WhatsApp: 24 horas</span>
           </p>
         </div>
-        <a href="https://wa.me/5534999999999?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20minha%20obra"
-           target="_blank" rel="noopener noreferrer"
-           class="btn-primary mt-8 self-start text-sm">
-          Falar com Especialista
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===================== DIFERENCIAIS ===================== -->
-<section id="sobre" class="py-28 px-6 lg:px-8" style="background:#F5F3F0" aria-label="Nossos diferenciais">
-  <div class="max-w-7xl mx-auto">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-
-      <!-- Left: text -->
-      <div class="reveal">
-        <div class="section-label mb-4">Por que escolher a Gesso Revolution 3D</div>
-        <h2 class="font-display font-extrabold text-4xl lg:text-5xl mb-6" style="color:#1A1A1A">
-          Nossa diferença está<br/> nos <span style="color:#CC0000">detalhes</span>
-        </h2>
-        <p class="text-lg leading-relaxed mb-8" style="color:#6B6B6B;font-family:'DM Sans',sans-serif;font-weight:300">
-          Com mais de 12 anos de experiência, a Gesso Revolution 3D entrega projetos que superam expectativas. Cada obra recebe atenção total, do primeiro gesso ao acabamento final.
-        </p>
-        <a href="https://wa.me/5534999999999?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20minha%20obra"
-           target="_blank" rel="noopener noreferrer"
-           class="btn-primary text-sm">
+        <a href="https://wa.me/5575981321119?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" class="btn btn-whatsapp" style="margin-top:1.5rem;width:100%;justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.553 4.109 1.519 5.834L.057 23.998l6.335-1.44C8.02 23.52 9.975 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.857 0-3.585-.5-5.074-1.371l-.361-.214-3.761.857.884-3.672-.235-.376C2.516 15.546 2 13.836 2 12 2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
           Solicitar Orçamento
         </a>
       </div>
 
-      <!-- Right: diferenciais grid -->
-      <div class="grid sm:grid-cols-2 gap-6">
-
-        <div class="diferencial-item bg-white rounded-2xl p-7 reveal reveal-delay-1" style="border:1px solid rgba(0,0,0,0.06)">
-          <div class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center" style="background:#FFF0F0" aria-hidden="true">
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#CC0000" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          </div>
-          <h3 class="font-display font-bold text-lg mb-2" style="color:#1A1A1A">Limpeza na Obra</h3>
-          <p class="text-sm leading-relaxed" style="color:#6B6B6B;font-family:'DM Sans',sans-serif;font-weight:300">Mantemos o canteiro organizado e entregamos o ambiente limpo ao final de cada etapa.</p>
-        </div>
-
-        <div class="diferencial-item bg-white rounded-2xl p-7 reveal reveal-delay-2" style="border:1px solid rgba(0,0,0,0.06)">
-          <div class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center" style="background:#FFF0F0" aria-hidden="true">
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#CC0000" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          </div>
-          <h3 class="font-display font-bold text-lg mb-2" style="color:#1A1A1A">Agilidade no Prazo</h3>
-          <p class="text-sm leading-relaxed" style="color:#6B6B6B;font-family:'DM Sans',sans-serif;font-weight:300">Respeitamos os cronogramas combinados. Sua obra no prazo, sem surpresas.</p>
-        </div>
-
-        <div class="diferencial-item bg-white rounded-2xl p-7 reveal reveal-delay-3" style="border:1px solid rgba(0,0,0,0.06)">
-          <div class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center" style="background:#FFF0F0" aria-hidden="true">
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#CC0000" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
-          </div>
-          <h3 class="font-display font-bold text-lg mb-2" style="color:#1A1A1A">Material de Primeira</h3>
-          <p class="text-sm leading-relaxed" style="color:#6B6B6B;font-family:'DM Sans',sans-serif;font-weight:300">Utilizamos apenas materiais certificados de fornecedores renomados, garantindo durabilidade.</p>
-        </div>
-
-        <div class="diferencial-item bg-white rounded-2xl p-7 reveal reveal-delay-4" style="border:1px solid rgba(0,0,0,0.06)">
-          <div class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center" style="background:#FFF0F0" aria-hidden="true">
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#CC0000" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
-          </div>
-          <h3 class="font-display font-bold text-lg mb-2" style="color:#1A1A1A">Garantia de 5 Anos</h3>
-          <p class="text-sm leading-relaxed" style="color:#6B6B6B;font-family:'DM Sans',sans-serif;font-weight:300">Todos os serviços possuem garantia formal. Investimento protegido e tranquilidade para você.</p>
-        </div>
-
-      </div>
     </div>
   </div>
-</section>
-
-<!-- ===================== GALERIA ===================== -->
-<section id="projetos" class="py-28 px-6 lg:px-8" style="background:#FDFCFA" aria-label="Galeria de projetos realizados">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-16 reveal">
-      <div class="section-label mb-4 justify-center">Portfólio</div>
-      <h2 class="font-display font-extrabold text-4xl lg:text-5xl mb-4" style="color:#1A1A1A">
-        Projetos <span style="color:#CC0000">Realizados</span>
-      </h2>
-      <p class="max-w-xl mx-auto text-lg" style="color:#6B6B6B;font-family:'DM Sans',sans-serif;font-weight:300">
-        Cada projeto é único. Veja alguns dos trabalhos que entregamos com excelência.
-      </p>
-    </div>
-
-    <!-- Gallery Grid -->
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-
-      <div class="gallery-item relative col-span-2 md:col-span-1 aspect-[4/3] reveal">
-        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&auto=format&fit=crop&q=60"
-             alt="Forro de drywall com iluminação embutida em sala de estar moderna"
-             class="w-full h-full object-cover" loading="lazy" />
-        <div class="gallery-overlay absolute inset-0 flex items-end p-5">
-          <p class="text-white font-display font-bold text-sm">Sala — Forro com LED</p>
-        </div>
-      </div>
-
-      <div class="gallery-item relative aspect-[4/3] reveal reveal-delay-1">
-        <img src="https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=600&auto=format&fit=crop&q=60"
-             alt="Sanca decorativa em gesso em quarto de casal com iluminação indireta"
-             class="w-full h-full object-cover" loading="lazy" />
-        <div class="gallery-overlay absolute inset-0 flex items-end p-5">
-          <p class="text-white font-display font-bold text-sm">Quarto — Sanca Fechada</p>
-        </div>
-      </div>
-
-      <div class="gallery-item relative aspect-[4/3] reveal reveal-delay-2">
-        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&auto=format&fit=crop&q=60"
-             alt="Nicho embutido em parede com acabamento em gesso liso em banheiro"
-             class="w-full h-full object-cover" loading="lazy" />
-        <div class="gallery-overlay absolute inset-0 flex items-end p-5">
-          <p class="text-white font-display font-bold text-sm">Banheiro — Nicho Embutido</p>
-        </div>
-      </div>
-
-      <div class="gallery-item relative aspect-[4/3] reveal reveal-delay-3">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=60"
-             alt="Paredes em drywall em escritório corporativo moderno com acabamento liso"
-             class="w-full h-full object-cover" loading="lazy" />
-        <div class="gallery-overlay absolute inset-0 flex items-end p-5">
-          <p class="text-white font-display font-bold text-sm">Escritório — Drywall</p>
-        </div>
-      </div>
-
-      <div class="gallery-item relative col-span-2 md:col-span-1 aspect-[4/3] reveal reveal-delay-4">
-        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&auto=format&fit=crop&q=60"
-             alt="Gesso liso aplicado em alvenaria de sala de jantar com acabamento premium"
-             class="w-full h-full object-cover" loading="lazy" />
-        <div class="gallery-overlay absolute inset-0 flex items-end p-5">
-          <p class="text-white font-display font-bold text-sm">Sala Jantar — Gesso Liso</p>
-        </div>
-      </div>
-
-      <div class="gallery-item relative aspect-[4/3] reveal reveal-delay-5">
-        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&auto=format&fit=crop&q=60"
-             alt="Molduras decorativas em gesso em corredor residencial de alto padrão"
-             class="w-full h-full object-cover" loading="lazy" />
-        <div class="gallery-overlay absolute inset-0 flex items-end p-5">
-          <p class="text-white font-display font-bold text-sm">Hall — Molduras Decorativas</p>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="text-center mt-12 reveal">
-      <a href="https://wa.me/5534999999999?text=Ol%C3%A1!%20Gostaria%20de%20ver%20mais%20projetos%20e%20solicitar%20um%20or%C3%A7amento"
-         target="_blank" rel="noopener noreferrer"
-         class="btn-primary">
-        Ver mais projetos no WhatsApp
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== CTA BANNER ===================== -->
-<section class="cta-bg py-24 px-6 lg:px-8 relative" aria-label="Chamada para orçamento">
-  <div class="max-w-4xl mx-auto text-center relative z-10 reveal">
-    <h2 class="font-display font-extrabold text-4xl lg:text-5xl mb-6" style="color:#FDFCFA">
-      Pronto para transformar<br/>seu espaço?
-    </h2>
-    <p class="text-lg mb-10" style="color:rgba(253,252,250,0.85);font-family:'DM Sans',sans-serif;font-weight:300;max-width:480px;margin-left:auto;margin-right:auto;margin-bottom:40px">
-      Entre em contato agora mesmo e receba um orçamento personalizado. É grátis e sem compromisso!
-    </p>
-    <a href="https://wa.me/5534999999999?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20minha%20obra"
-       target="_blank" rel="noopener noreferrer"
-       style="background:#fff;color:#CC0000;font-family:'Syne',sans-serif;font-weight:700;border-radius:50px;padding:16px 36px;display:inline-flex;align-items:center;gap:12px;text-decoration:none;font-size:1rem;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 8px 30px rgba(0,0,0,0.2)"
-       onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,0.3)'"
-       onmouseout="this.style.transform='';this.style.boxShadow='0 8px 30px rgba(0,0,0,0.2)'">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-      Solicitar Orçamento Grátis
-    </a>
-  </div>
-</section>
-
-<!-- ===================== CONTATO ===================== -->
-<section id="contato" class="py-28 px-6 lg:px-8" style="background:#FDFCFA" aria-label="Informações de contato">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-16 reveal">
-      <div class="section-label mb-4 justify-center">Fale conosco</div>
-      <h2 class="font-display font-extrabold text-4xl lg:text-5xl mb-4" style="color:#1A1A1A">
-        Entre em <span style="color:#CC0000">Contato</span>
-      </h2>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-6">
-
-      <div class="text-center p-8 rounded-2xl reveal reveal-delay-1" style="background:#F5F3F0">
-        <div class="w-14 h-14 rounded-2xl mx-auto mb-5 flex items-center justify-center" style="background:linear-gradient(135deg,#CC0000,#E52222)" aria-hidden="true">
-          <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-        </div>
-        <h3 class="font-display font-bold text-lg mb-2" style="color:#1A1A1A">WhatsApp</h3>
-        <p class="text-sm mb-4" style="color:#6B6B6B">(34) 9 9999-9999</p>
-        <a href="https://wa.me/5534999999999?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20minha%20obra"
-           target="_blank" rel="noopener noreferrer"
-           class="text-sm font-semibold" style="color:#CC0000;text-decoration:none">
-          Chamar agora →
-        </a>
-      </div>
-
-      <div class="text-center p-8 rounded-2xl reveal reveal-delay-2" style="background:#F5F3F0">
-        <div class="w-14 h-14 rounded-2xl mx-auto mb-5 flex items-center justify-center" style="background:linear-gradient(135deg,#CC0000,#E52222)" aria-hidden="true">
-          <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        </div>
-        <h3 class="font-display font-bold text-lg mb-2" style="color:#1A1A1A">E-mail</h3>
-        <p class="text-sm mb-4" style="color:#6B6B6B">contato@gessorevolution3d.com.br</p>
-        <a href="mailto:contato@gessorevolution3d.com.br"
-           class="text-sm font-semibold" style="color:#CC0000;text-decoration:none">
-          Enviar e-mail →
-        </a>
-      </div>
-
-      <div class="text-center p-8 rounded-2xl reveal reveal-delay-3" style="background:#F5F3F0">
-        <div class="w-14 h-14 rounded-2xl mx-auto mb-5 flex items-center justify-center" style="background:linear-gradient(135deg,#CC0000,#E52222)" aria-hidden="true">
-          <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-        </div>
-        <h3 class="font-display font-bold text-lg mb-2" style="color:#1A1A1A">Localização</h3>
-        <p class="text-sm mb-4" style="color:#6B6B6B">Uberlândia, MG<br/>Atendemos toda a região</p>
-        <span class="text-sm font-semibold" style="color:#CC0000">Ver no mapa →</span>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===================== FOOTER ===================== -->
-<footer style="background:#1A1A1A;color:#FDFCFA" role="contentinfo" aria-label="Rodapé">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-    <div class="grid md:grid-cols-4 gap-12">
-
-      <!-- Brand -->
-      <div class="md:col-span-2">
-        <div class="flex items-center gap-3 mb-5">
-          <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,#CC0000,#AA0000)" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="2" y="2" width="8" height="8" rx="2" fill="white" opacity="0.9"/>
-              <rect x="12" y="2" width="8" height="8" rx="2" fill="white" opacity="0.6"/>
-              <rect x="2" y="12" width="8" height="8" rx="2" fill="white" opacity="0.6"/>
-              <rect x="12" y="12" width="8" height="8" rx="2" fill="white" opacity="0.9"/>
-            </svg>
-          </div>
-          <span class="font-display font-extrabold text-xl" style="font-family:'Syne',sans-serif"><span style="color:#CC0000">Gesso</span> Revolution <span style="color:#CC0000">3D</span></span>
-        </div>
-        <p class="text-sm leading-relaxed mb-6 max-w-xs" style="color:rgba(253,252,250,0.55);font-family:'DM Sans',sans-serif;font-weight:300">
-          Especialistas em drywall, gesso liso, sancas e iluminação embutida. Qualidade e compromisso em cada projeto.
-        </p>
-        <!-- Social -->
-        <div class="flex gap-3">
-          <a href="#" aria-label="Instagram da Gesso Revolution 3D" class="w-10 h-10 rounded-xl flex items-center justify-center transition-colors" style="background:rgba(255,255,255,0.08)" onmouseover="this.style.background='#CC0000'" onmouseout="this.style.background='rgba(255,255,255,0.08)'">
-            <svg width="18" height="18" fill="white" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-          </a>
-          <a href="#" aria-label="Facebook da Gesso Revolution 3D" class="w-10 h-10 rounded-xl flex items-center justify-center transition-colors" style="background:rgba(255,255,255,0.08)" onmouseover="this.style.background='#CC0000'" onmouseout="this.style.background='rgba(255,255,255,0.08)'">
-            <svg width="18" height="18" fill="white" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          </a>
-          <a href="https://wa.me/5534999999999" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp da Gesso Revolution 3D" class="w-10 h-10 rounded-xl flex items-center justify-center transition-colors" style="background:rgba(255,255,255,0.08)" onmouseover="this.style.background='#25D366'" onmouseout="this.style.background='rgba(255,255,255,0.08)'">
-            <svg width="18" height="18" fill="white" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Links -->
-      <div>
-        <h3 class="font-display font-bold text-base mb-5" style="color:#FDFCFA">Navegação</h3>
-        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px">
-          <li><a href="#inicio"   style="color:rgba(253,252,250,0.55);text-decoration:none;font-size:0.875rem;font-family:'DM Sans',sans-serif;transition:color 0.2s" onmouseover="this.style.color='#CC0000'" onmouseout="this.style.color='rgba(253,252,250,0.55)'">Início</a></li>
-          <li><a href="#servicos" style="color:rgba(253,252,250,0.55);text-decoration:none;font-size:0.875rem;font-family:'DM Sans',sans-serif;transition:color 0.2s" onmouseover="this.style.color='#CC0000'" onmouseout="this.style.color='rgba(253,252,250,0.55)'">Serviços</a></li>
-          <li><a href="#projetos" style="color:rgba(253,252,250,0.55);text-decoration:none;font-size:0.875rem;font-family:'DM Sans',sans-serif;transition:color 0.2s" onmouseover="this.style.color='#CC0000'" onmouseout="this.style.color='rgba(253,252,250,0.55)'">Projetos</a></li>
-          <li><a href="#sobre"    style="color:rgba(253,252,250,0.55);text-decoration:none;font-size:0.875rem;font-family:'DM Sans',sans-serif;transition:color 0.2s" onmouseover="this.style.color='#CC0000'" onmouseout="this.style.color='rgba(253,252,250,0.55)'">Sobre</a></li>
-          <li><a href="#contato"  style="color:rgba(253,252,250,0.55);text-decoration:none;font-size:0.875rem;font-family:'DM Sans',sans-serif;transition:color 0.2s" onmouseover="this.style.color='#CC0000'" onmouseout="this.style.color='rgba(253,252,250,0.55)'">Contato</a></li>
-        </ul>
-      </div>
-
-      <!-- Services -->
-      <div>
-        <h3 class="font-display font-bold text-base mb-5" style="color:#FDFCFA">Serviços</h3>
-        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px">
-          <li><span style="color:rgba(253,252,250,0.55);font-size:0.875rem;font-family:'DM Sans',sans-serif">Drywall e Forros</span></li>
-          <li><span style="color:rgba(253,252,250,0.55);font-size:0.875rem;font-family:'DM Sans',sans-serif">Gesso Liso</span></li>
-          <li><span style="color:rgba(253,252,250,0.55);font-size:0.875rem;font-family:'DM Sans',sans-serif">Sancas e Molduras</span></li>
-          <li><span style="color:rgba(253,252,250,0.55);font-size:0.875rem;font-family:'DM Sans',sans-serif">Isolamento Acústico</span></li>
-          <li><span style="color:rgba(253,252,250,0.55);font-size:0.875rem;font-family:'DM Sans',sans-serif">Nichos e Iluminação</span></li>
-        </ul>
-      </div>
-
-    </div>
-
-    <!-- Bottom bar -->
-    <div class="mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-4" style="border-top:1px solid rgba(255,255,255,0.08)">
-      <p class="text-xs" style="color:rgba(253,252,250,0.35);font-family:'DM Sans',sans-serif">
-        © 2025 Gesso Revolution 3D. Todos os direitos reservados. Uberlândia – MG
-      </p>
-      <p class="text-xs" style="color:rgba(253,252,250,0.25);font-family:'DM Sans',sans-serif">
-        CNPJ: 00.000.000/0001-00
-      </p>
-    </div>
+  <div class="footer-divider"></div>
+  <div class="footer-bottom">
+    <p>© 2025 Decore Gesso 3D Revolution. Todos os direitos reservados.</p>
+    <a href="https://instagram.com/decore3d_revolution" target="_blank">@decore3d_revolution</a>
   </div>
 </footer>
 
-<!-- ===================== WHATSAPP FLOAT ===================== -->
-<a href="https://wa.me/5534999999999?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20minha%20obra"
-   target="_blank"
-   rel="noopener noreferrer"
-   class="whatsapp-float"
-   aria-label="Falar no WhatsApp para solicitar orçamento">
-  <svg width="30" height="30" viewBox="0 0 24 24" fill="white" aria-hidden="true">
-    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-  </svg>
+<!-- ═══════════════════ WHATSAPP FLOAT ═══════════════════ -->
+<a href="https://wa.me/5575981321119?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" class="whatsapp-float" title="Fale conosco no WhatsApp">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.553 4.109 1.519 5.834L.057 23.998l6.335-1.44C8.02 23.52 9.975 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.857 0-3.585-.5-5.074-1.371l-.361-.214-3.761.857.884-3.672-.235-.376C2.516 15.546 2 13.836 2 12 2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  <span class="wa-label">Fale Conosco</span>
 </a>
 
-<!-- ===================== JAVASCRIPT ===================== -->
 <script>
-  // ---- Navbar scroll behavior ----
+  // ═══════════════════════════════════════════════
+  // PARTICLES GENERATOR
+  // ═══════════════════════════════════════════════
+  (function() {
+    const container = document.getElementById('particles');
+    const count = 25;
+    for (let i = 0; i < count; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const size = Math.random() * 3 + 1;
+      p.style.cssText = `
+        width:${size}px; height:${size}px;
+        left:${Math.random() * 100}%;
+        animation-duration:${Math.random() * 15 + 10}s;
+        animation-delay:${Math.random() * 12}s;
+        opacity:${Math.random() * 0.5 + 0.1};
+      `;
+      container.appendChild(p);
+    }
+  })();
+
+  // ═══════════════════════════════════════════════
+  // NAVBAR SCROLL
+  // ═══════════════════════════════════════════════
   const navbar = document.getElementById('navbar');
-  const logoText = document.getElementById('logo-text');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  });
 
-  function handleScroll() {
-    if (window.scrollY > 60) {
-      navbar.classList.add('scrolled');
-      document.querySelectorAll('.nav-link').forEach(l => l.style.color = '#3D3D3D');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  }
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll();
-
-  // ---- Mobile hamburger ----
+  // ═══════════════════════════════════════════════
+  // HAMBURGER MENU
+  // ═══════════════════════════════════════════════
   const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const hamLines = document.querySelectorAll('.ham-line');
-  let menuOpen = false;
-
+  const navMenu   = document.getElementById('nav-menu');
   hamburger.addEventListener('click', () => {
-    menuOpen = !menuOpen;
-    hamburger.setAttribute('aria-expanded', menuOpen);
-    mobileMenu.classList.toggle('open', menuOpen);
-    // Animate hamburger to X
-    if (menuOpen) {
-      hamLines[0].style.transform = 'translateY(8px) rotate(45deg)';
-      hamLines[1].style.opacity = '0';
-      hamLines[2].style.transform = 'translateY(-8px) rotate(-45deg)';
-    } else {
-      hamLines[0].style.transform = '';
-      hamLines[1].style.opacity = '';
-      hamLines[2].style.transform = '';
-    }
+    hamburger.classList.toggle('open');
+    navMenu.classList.toggle('open');
   });
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    navMenu.classList.remove('open');
+  }
 
-  // Close menu when a link is clicked
-  mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      menuOpen = false;
-      mobileMenu.classList.remove('open');
-      hamLines.forEach(l => { l.style.transform = ''; l.style.opacity = ''; });
-      hamburger.setAttribute('aria-expanded', false);
-    });
-  });
-
-  // ---- Scroll reveal ----
-  const revealEls = document.querySelectorAll('.reveal');
+  // ═══════════════════════════════════════════════
+  // SCROLL REVEAL (IntersectionObserver)
+  // ═══════════════════════════════════════════════
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -910,31 +1682,98 @@
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.12 });
 
-  revealEls.forEach(el => revealObserver.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-  // ---- Smooth active nav highlighting ----
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-link');
-
-  const sectionObserver = new IntersectionObserver((entries) => {
+  // ═══════════════════════════════════════════════
+  // COUNTER ANIMATION
+  // ═══════════════════════════════════════════════
+  const counters = document.querySelectorAll('.stat-number[data-target]');
+  const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinks.forEach(link => {
-          link.style.color = '';
-          link.style.fontWeight = '';
-          if (link.getAttribute('href') === '#' + entry.target.id) {
-            link.style.color = '#CC0000';
-            link.style.fontWeight = '600';
-          }
-        });
-      }
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseInt(el.dataset.target);
+      const suffix = el.nextElementSibling ? '' : '';
+      let start = 0;
+      const step = target / 60;
+      const timer = setInterval(() => {
+        start += step;
+        if (start >= target) { start = target; clearInterval(timer); }
+        el.textContent = Math.floor(start) + (target === 100 ? '%' : (target === 8 ? '' : '+'));
+      }, 25);
+      counterObserver.unobserve(el);
     });
-  }, { threshold: 0.4 });
+  }, { threshold: 0.5 });
+  counters.forEach(c => counterObserver.observe(c));
 
-  sections.forEach(s => sectionObserver.observe(s));
+  // ═══════════════════════════════════════════════
+  // PORTFOLIO FILTER
+  // ═══════════════════════════════════════════════
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.portfolio-item').forEach(item => {
+        const show = filter === 'todos' || item.dataset.cat === filter;
+        item.style.opacity = show ? '1' : '0.2';
+        item.style.pointerEvents = show ? 'auto' : 'none';
+        item.style.transition = 'opacity 0.4s ease';
+      });
+    });
+  });
+
+  // ═══════════════════════════════════════════════
+  // LIGHTBOX
+  // ═══════════════════════════════════════════════
+  const portfolioData = [
+    { title: 'Forro 3D Sala de Estar', cat: 'Forros 3D', gradient: 'linear-gradient(135deg, #1A3560, #0A1628, #6B3FA0)' },
+    { title: 'Divisória Office Premium', cat: 'Drywall', gradient: 'linear-gradient(135deg, #112244, #1A3560)' },
+    { title: 'Painel Elétrico Residencial', cat: 'Elétrica', gradient: 'linear-gradient(135deg, #0A1628, #2a1060)' },
+    { title: 'Rebaixo com LED Integrado', cat: 'Forros 3D', gradient: 'linear-gradient(135deg, #1A3560, #0d1f45, rgba(201,168,76,0.3))' },
+    { title: 'Parede Drywall Premium', cat: 'Drywall', gradient: 'linear-gradient(135deg, #112244, #0A1628)' },
+    { title: 'Automação Residencial', cat: 'Elétrica', gradient: 'linear-gradient(135deg, #1a0a2e, #112244)' },
+  ];
+  const lightbox = document.getElementById('lightbox');
+  function openLightbox(idx) {
+    const d = portfolioData[idx];
+    document.getElementById('lightbox-content').style.cssText = `background:${d.gradient};border-radius:12px;display:flex;align-items:center;justify-content:center;`;
+    document.getElementById('lightbox-content').innerHTML = `<div style="text-align:center;padding:2rem;"><div style="font-family:'Playfair Display',serif;font-size:3rem;color:#C9A84C;opacity:0.4;">3D</div><div style="font-family:'Raleway',sans-serif;font-weight:600;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:#C9A84C;margin-top:1rem;">${d.cat}</div></div>`;
+    document.getElementById('lightbox-title').textContent = d.title;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  // ═══════════════════════════════════════════════
+  // TESTIMONIALS SLIDER
+  // ═══════════════════════════════════════════════
+  let currentSlide = 0;
+  const totalSlides = 3;
+  const track = document.getElementById('testimonial-track');
+  const dots = document.querySelectorAll('.dot');
+
+  function updateSlider() {
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+  }
+  function changeSlide(dir) {
+    currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
+    updateSlider();
+  }
+  function goToSlide(n) {
+    currentSlide = n;
+    updateSlider();
+  }
+  // Auto-play
+  setInterval(() => changeSlide(1), 5500);
 </script>
-
 </body>
 </html>
