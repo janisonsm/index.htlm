@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Decore Gesso 3D Revolution - Especialistas em Drywall, Forros 3D e Elétrica. Transformamos espaços com qualidade e elegância.">
+  <meta name="keywords" content="drywall, gesso 3D, forros, elétrica, decoração, reforma, Bahia">
+  <meta property="og:title" content="Decore Gesso 3D Revolution">
+  <meta property="og:description" content="Especialistas em Drywall, Forros 3D e Instalações Elétricas">
+  <meta property="og:type" content="website">
+  <title>Decore Gesso 3D Revolution | Drywall · Forros · Elétrica</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════════
+       CSS VARIABLES & RESET
+    ═══════════════════════════════════════════════ */
+    :root {
+      --navy:        #0A1628;
+      --navy-mid:    #112244;
+      --navy-light:  #1A3560;
+      --gold:        #C9A84C;
+      --gold-light:  #E2C06A;
+      --gray-light:  #E8EDF2;
+      --purple:      #6B3FA0;
+      --purple-light:#8B5FBF;
+      --white:       #FFFFFF;
+      --whatsapp:    #25D366;
+      --transition:  all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      background: var(--navy);
+      color: var(--gray-light);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    /* ═══════════════════════════════════════════════
+       TYPOGRAPHY
+    ═══════════════════════════════════════════════ */
+    h1 { font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.15; }
+    h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-style: italic; color: var(--white); }
+    h3 { font-family: 'Raleway', sans-serif; font-weight: 700; color: var(--gold-light); }
+    p  { font-weight: 300; color: var(--gray-light); }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      text-align: center;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin: 0.8rem auto 0;
+    }
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.05rem;
+      max-width: 560px;
+      margin: 0 auto 3.5rem;
+      opacity: 0.8;
+    }
+
+    /* ═══════════════════════════════════════════════
+       BUTTONS
+    ═══════════════════════════════════════════════ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+    }
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201,168,76,0.35);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--purple);
+    }
+    .btn-secondary:hover {
+      background: var(--purple);
+      box-shadow: 0 8px 24px rgba(107,63,160,0.4);
+    }
+    .btn-whatsapp {
+      background: var(--whatsapp);
+      color: var(--white);
+    }
+    .btn-whatsapp:hover {
+      background: #1ebe5d;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37,211,102,0.4);
+    }
+
+    /* ═══════════════════════════════════════════════
+       REVEAL ANIMATION
+    ═══════════════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.15s; }
+    .reveal-delay-2 { transition-delay: 0.3s; }
+    .reveal-delay-3 { transition-delay: 0.45s; }
+
+    /* ═══════════════════════════════════════════════
+       NAVBAR
+    ═══════════════════════════════════════════════ */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1.2rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: var(--transition);
+      background: transparent;
+    }
+    #navbar.scrolled {
+      background: rgba(10, 22, 40, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 0.8rem 2rem;
+      box-shadow: 0 2px 30px rgba(0,0,0,0.5);
+    }
+    .nav-logo {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+    .nav-logo-main {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+    }
+    .nav-logo-sub {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      font-size: 0.65rem;
+      color: var(--gold-light);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-menu a {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--gray-light);
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 2px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+    .nav-menu a:hover { color: var(--gold); }
+    .nav-menu a:hover::after { width: 100%; }
+    .nav-cta { margin-left: 1rem; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--gold);
+      transition: var(--transition);
+      transform-origin: center;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ═══════════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════════ */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #0d1f45 100%);
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+    }
+    /* Geometric SVG pattern overlay */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    /* Diagonal accent stripe */
+    #hero::after {
+      content: '';
+      position: absolute;
+      top: -20%; right: -10%;
+      width: 60%;
+      height: 140%;
+      background: linear-gradient(180deg, rgba(107,63,160,0.08) 0%, rgba(201,168,76,0.05) 100%);
+      transform: skewX(-12deg);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+    }
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      border: 1px solid rgba(107,63,160,0.5);
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 1.8rem;
+      background: rgba(107,63,160,0.1);
+    }
+    .hero-h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+    .hero-h1 em {
+      color: var(--gold);
+      font-style: italic;
+    }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      opacity: 0.85;
+      font-weight: 300;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Particles */
+    .particles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: float linear infinite;
+      opacity: 0;
+    }
+    @keyframes float {
+      0%   { transform: translateY(100vh) translateX(0); opacity: 0; }
+      10%  { opacity: 0.6; }
+      90%  { opacity: 0.3; }
+      100% { transform: translateY(-10vh) translateX(30px); opacity: 0; }
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      z-index: 2;
+      animation: bounce 2s infinite;
+    }
+    .scroll-indicator span {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.5;
+      font-weight: 600;
+    }
+    .scroll-chevron {
+      width: 20px;
+      height: 20px;
+      border-right: 2px solid var(--gold);
+      border-bottom: 2px solid var(--gold);
+      transform: rotate(45deg);
+      opacity: 0.6;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ═══════════════════════════════════════════════
+       SECTIONS COMMON
+    ═══════════════════════════════════════════════ */
+    section {
+      padding: 6rem 2rem;
+    }
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .dot-bg {
+      background-image: radial-gradient(circle, rgba(201,168,76,0.04) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+
+    /* ═══════════════════════════════════════════════
+       SERVICES
+    ═══════════════════════════════════════════════ */
+    #servicos { background: var(--navy-mid); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .service-card {
+      background: var(--navy-light);
+      border: 1px solid rgba(201,168,76,0.12);
+      border-radius: 14px;
+      padding: 2.5rem 2rem;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--purple));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--gold);
+      box-shadow: 0 24px 50px rgba(201,168,76,0.12);
+    }
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 1.5rem;
+    }
+    .service-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .service-card p {
+      font-size: 0.95rem;
+      margin-bottom: 1.4rem;
+      line-height: 1.7;
+    }
+    .service-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .service-list li {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--gray-light);
+      opacity: 0.85;
+    }
+    .service-list li::before {
+      content: '✓ ';
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--purple);
+      color: var(--white);
+      padding: 4px 12px;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+
+    /* ═══════════════════════════════════════════════
+       DIFERENCIAIS
+    ═══════════════════════════════════════════════ */
+    #diferenciais {
+      background: var(--navy);
+      dot-bg: true;
+    }
+    .divider-line {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), var(--purple), var(--gold), transparent);
+      margin: 0 auto 4rem;
+      max-width: 500px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .stat-card {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      background: var(--navy-light);
+      border-radius: 14px;
+      border: 1px solid rgba(201,168,76,0.1);
+      transition: var(--transition);
+    }
+    .stat-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-6px);
+    }
+    .stat-emoji {
+      font-size: 2.2rem;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 2.6rem;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.7;
+    }
+
+    /* ═══════════════════════════════════════════════
+       PORTFOLIO
+    ═══════════════════════════════════════════════ */
+    #portfolio { background: var(--navy-mid); }
+
+    .portfolio-filters {
+      display: flex;
+      gap: 0.8rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .filter-btn {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 8px 22px;
+      border-radius: 50px;
+      border: 1px solid rgba(201,168,76,0.3);
+      background: transparent;
+      color: var(--gray-light);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--gold);
+      color: var(--navy);
+      border-color: var(--gold);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 220px;
+      gap: 1.2rem;
+    }
+    .portfolio-item {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .portfolio-item:nth-child(1) { grid-row: span 2; }
+    .portfolio-item:nth-child(5) { grid-row: span 2; }
+
+    .portfolio-bg {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease;
+    }
+    .portfolio-item:hover .portfolio-bg { transform: scale(1.06); }
+
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,22,40,0.9) 0%, transparent 60%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+    .portfolio-overlay h4 {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+    .portfolio-overlay span {
+      font-size: 0.75rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+    .lupa-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 42px;
+      height: 42px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .portfolio-item:hover .lupa-icon { opacity: 1; }
+
+    /* Lightbox */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(10,22,40,0.95);
+      backdrop-filter: blur(10px);
+      align-items: center;
+      justify-content: center;
+    }
+    #lightbox.open { display: flex; }
+    .lightbox-inner {
+      position: relative;
+      max-width: 700px;
+      width: 90%;
+      text-align: center;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -2.5rem;
+      right: 0;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.8rem;
+      cursor: pointer;
+      line-height: 1;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .lightbox-close:hover { opacity: 1; }
+    #lightbox-content {
+      width: 100%;
+      height: 420px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    #lightbox-title {
+      margin-top: 1.2rem;
+      font-family: 'Playfair Display', serif;
+      color: var(--gold);
+      font-size: 1.4rem;
+    }
+
+    /* ═══════════════════════════════════════════════
+       DEPOIMENTOS
+    ═══════════════════════════════════════════════ */
+    #depoimentos { background: var(--navy); }
+
+    .testimonial-slider {
+      position: relative;
+      max-width: 740px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .testimonial-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+    .testimonial-card {
+      min-width: 100%;
+      padding: 2.5rem;
+      background: var(--navy-light);
+      border-radius: 16px;
+      border: 1px solid rgba(201,168,76,0.12);
+      text-align: center;
+    }
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      margin: 0 auto 1.2rem;
+      border: 3px solid var(--gold);
+      overflow: hidden;
+      background: var(--navy-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .stars {
+      color: var(--gold);
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+    }
+    .testimonial-text {
+      font-size: 1.05rem;
+      font-style: italic;
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+      opacity: 0.9;
+    }
+    .testimonial-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .testimonial-role {
+      font-size: 0.8rem;
+      opacity: 0.6;
+      margin-top: 0.2rem;
+    }
+    .slider-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.8rem;
+    }
+    .slider-btn {
+      background: transparent;
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    .slider-btn:hover {
+      background: var(--gold);
+      color: var(--navy);
+    }
+    .slider-dots {
+      display: flex;
+      gap: 8px;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.3);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .dot.active { background: var(--gold); }
+
+    /* ═══════════════════════════════════════════════
+       CTA CENTRAL
+    ═══════════════════════════════════════════════ */
+    #cta-section {
+      background: linear-gradient(135deg, var(--purple) 0%, var(--navy-mid) 50%, var(--navy) 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .cta-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--white);
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .cta-subtitle {
+      font-size: 1.05rem;
+      max-width: 500px;
+      margin: 0 auto 2.5rem;
+      opacity: 0.85;
+    }
+    .btn-pulse {
+      animation: btnPulse 2.5s infinite;
+    }
+    @keyframes btnPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
+      50%       { box-shadow: 0 0 0 16px rgba(37,211,102,0); }
+    }
+
+    /* ═══════════════════════════════════════════════
+       FOOTER / CONTATO
+    ═══════════════════════════════════════════════ */
+    #contato {
+      background: var(--navy);
+      padding-top: 5rem;
+      padding-bottom: 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1.2fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+    }
+    .footer-col h4 {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.4rem;
+    }
+    .footer-logo-main {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .footer-logo-sub {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      font-size: 0.65rem;
+      color: var(--gold-light);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .footer-desc {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      opacity: 0.7;
+      margin-bottom: 1.5rem;
+    }
+    .social-links {
+      display: flex;
+      gap: 0.8rem;
+    }
+    .social-link {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+    .social-link:hover {
+      background: var(--gold);
+      color: var(--navy);
+      border-color: var(--gold);
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    .footer-links a {
+      text-decoration: none;
+      color: var(--gray-light);
+      font-size: 0.9rem;
+      opacity: 0.75;
+      transition: opacity 0.2s, color 0.2s;
+    }
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--gold);
+    }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+    }
+    .contact-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: var(--gold);
+    }
+    .contact-item p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    .contact-item a {
+      color: var(--gray-light);
+      text-decoration: none;
+      opacity: 0.8;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .contact-item a:hover { color: var(--gold); }
+
+    /* Instagram feed placeholder */
+    .insta-feed {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      margin-top: 0.5rem;
+    }
+    .insta-post {
+      aspect-ratio: 1;
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+    .insta-post:hover { opacity: 0.75; }
+    .insta-post svg { width: 100%; height: 100%; display: block; }
+
+    .footer-divider {
+      height: 1px;
+      background: rgba(201,168,76,0.12);
+      margin: 0;
+    }
+    .footer-bottom {
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      background: rgba(0,0,0,0.2);
+    }
+    .footer-bottom p {
+      font-size: 0.8rem;
+      opacity: 0.5;
+    }
+    .footer-bottom a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.8rem;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .footer-bottom a:hover { opacity: 1; }
+
+    /* ═══════════════════════════════════════════════
+       WHATSAPP FLOATING BUTTON
+    ═══════════════════════════════════════════════ */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: var(--whatsapp);
+      color: var(--white);
+      text-decoration: none;
+      padding: 14px 20px 14px 16px;
+      border-radius: 50px;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+      animation: waPulse 2.8s infinite;
+      transition: transform 0.2s ease;
+      min-height: 56px;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 32px rgba(37,211,102,0.6);
+    }
+    @keyframes waPulse {
+      0%   { box-shadow: 0 0 0 0 rgba(37,211,102,0.6); }
+      60%  { box-shadow: 0 0 0 16px rgba(37,211,102,0); }
+      100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+    }
+
+    /* ═══════════════════════════════════════════════
+       SOBRE SECTION
+    ═══════════════════════════════════════════════ */
+    #sobre {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .sobre-visual {
+      position: relative;
+    }
+    .sobre-shape {
+      width: 100%;
+      aspect-ratio: 1;
+      max-width: 420px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--navy-light), var(--navy-mid));
+      border: 1px solid rgba(201,168,76,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .sobre-shape::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg at 50% 50%,
+        transparent 0deg,
+        rgba(201,168,76,0.06) 60deg,
+        transparent 120deg,
+        rgba(107,63,160,0.05) 180deg,
+        transparent 240deg,
+        rgba(201,168,76,0.04) 300deg,
+        transparent 360deg);
+      animation: rotateGrad 20s linear infinite;
+    }
+    @keyframes rotateGrad {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    .sobre-shape-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 2rem;
+    }
+    .sobre-shape-inner .big-num {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 6rem;
+      color: var(--gold);
+      line-height: 1;
+      opacity: 0.15;
+    }
+    .sobre-shape-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .sobre-tag {
+      position: absolute;
+      bottom: -1rem;
+      right: -1rem;
+      background: var(--purple);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 10px 18px;
+      border-radius: 8px;
+    }
+    .sobre-text h2 { text-align: left; margin-bottom: 1.5rem; }
+    .sobre-text h2::after { margin: 0.8rem 0 0; }
+    .sobre-text p { margin-bottom: 1rem; }
+    .sobre-values {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .value-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--gray-light);
+    }
+    .value-item::before {
+      content: '◆';
+      color: var(--gold);
+      font-size: 0.6rem;
+      flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════════════
+       MOBILE RESPONSIVE
+    ═══════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid    { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-item:nth-child(1), .portfolio-item:nth-child(5) { grid-row: span 1; }
+      .footer-grid   { grid-template-columns: 1fr 1fr; }
+      .sobre-grid    { grid-template-columns: 1fr; }
+      .sobre-visual  { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 4rem 1.2rem; }
+
+      .nav-menu {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(10,22,40,0.98);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        z-index: 999;
+      }
+      .nav-menu.open { display: flex; }
+      .nav-menu a { font-size: 1.2rem; }
+      .nav-cta { display: none; }
+      .hamburger { display: flex; z-index: 1001; }
+      #navbar { padding: 1rem 1.2rem; }
+
+      .hero-h1 { font-size: 2.5rem; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .hero-buttons .btn { width: 100%; max-width: 320px; justify-content: center; }
+
+      .services-grid { grid-template-columns: 1fr; }
+      .stats-grid    { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .portfolio-item:nth-child(1), .portfolio-item:nth-child(5) { grid-row: span 1; }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+
+      .whatsapp-float { bottom: 1rem; right: 1rem; padding: 14px; border-radius: 50%; }
+      .whatsapp-float .wa-label { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAVBAR ═══════════════════ -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <span class="nav-logo-main">DECORE GESSO</span>
+    <span class="nav-logo-sub">3D Revolution</span>
+  </a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-menu" id="nav-menu">
+    <li><a href="#hero" onclick="closeMenu()">Home</a></li>
+    <li><a href="#servicos" onclick="closeMenu()">Serviços</a></li>
+    <li><a href="#sobre" onclick="closeMenu()">Sobre</a></li>
+    <li><a href="#portfolio" onclick="closeMenu()">Portfólio</a></li>
+    <li><a href="#contato" onclick="closeMenu()">Contato</a></li>
+    <li class="nav-cta">
+      <a href="https://wa.me/5575981321119?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" class="btn btn-whatsapp" style="padding:10px 20px;font-size:0.78rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.553 4.109 1.519 5.834L.057 23.998l6.335-1.44C8.02 23.52 9.975 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.857 0-3.585-.5-5.074-1.371l-.361-.214-3.761.857.884-3.672-.235-.376C2.516 15.546 2 13.836 2 12 2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Fale Conosco
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section id="hero">
+  <div class="particles" id="particles"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ Especialistas em Acabamentos Premium</div>
+    <h1 class="hero-h1">Transformamos Espaços<br>em <em>Arte</em></h1>
+    <p class="hero-subtitle">Especialistas em Drywall, Forros e Elétrica com acabamento 3D que eleva qualquer ambiente ao próximo nível.</p>
+    <div class="hero-buttons">
+      <a href="#servicos" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Ver Serviços
+      </a>
+      <a href="https://wa.me/5575981321119?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" class="btn btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.553 4.109 1.519 5.834L.057 23.998l6.335-1.44C8.02 23.52 9.975 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.857 0-3.585-.5-5.074-1.371l-.361-.214-3.761.857.884-3.672-.235-.376C2.516 15.546 2 13.836 2 12 2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Orçamento Grátis
+      </a>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-chevron"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SERVIÇOS ═══════════════════ -->
+<section id="servicos" class="dot-bg">
+  <div class="container">
+    <h2 class="section-title reveal">Nossos Serviços</h2>
+    <p class="section-subtitle reveal reveal-delay-1">Soluções completas em construção e acabamento com padrão premium e execução impecável.</p>
+    <div class="services-grid">
+
+      <!-- CARD DRYWALL -->
+      <div class="service-card reveal reveal-delay-1">
+        <svg class="service-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="10" width="50" height="8" rx="2" fill="none" stroke="#C9A84C" stroke-width="2"/>
+          <rect x="5" y="26" width="50" height="8" rx="2" fill="none" stroke="#C9A84C" stroke-width="2"/>
+          <rect x="5" y="42" width="50" height="8" rx="2" fill="none" stroke="#C9A84C" stroke-width="2"/>
+          <line x1="20" y1="10" x2="20" y2="18" stroke="#C9A84C" stroke-width="1.5"/>
+          <line x1="40" y1="10" x2="40" y2="18" stroke="#C9A84C" stroke-width="1.5"/>
+          <line x1="30" y1="26" x2="30" y2="34" stroke="#C9A84C" stroke-width="1.5"/>
+          <line x1="15" y1="42" x2="15" y2="50" stroke="#C9A84C" stroke-width="1.5"/>
+          <line x1="45" y1="42" x2="45" y2="50" stroke="#C9A84C" stroke-width="1.5"/>
+        </svg>
+        <h3>Drywall</h3>
+        <p>Paredes e divisórias de alta precisão com acabamento impecável. Soluções modernas, leves e com excelente isolamento acústico e térmico.</p>
+        <ul class="service-list">
+          <li>Divisórias internas</li>
+          <li>Forros de drywall</li>
+          <li>Revestimentos</li>
+        </ul>
+      </div>
+
+      <!-- CARD FORROS E GESSO 3D -->
+      <div class="service-card reveal reveal-delay-2">
+        <span class="badge">✦ Destaque</span>
+        <svg class="service-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 40 Q20 20 30 30 Q40 40 50 20" stroke="#C9A84C" stroke-width="2" fill="none"/>
+          <path d="M10 46 Q20 26 30 36 Q40 46 50 26" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.5"/>
+          <circle cx="30" cy="30" r="4" fill="#C9A84C" opacity="0.3"/>
+          <circle cx="15" cy="38" r="2.5" fill="#C9A84C" opacity="0.4"/>
+          <circle cx="45" cy="25" r="2.5" fill="#C9A84C" opacity="0.4"/>
+          <rect x="5" y="48" width="50" height="4" rx="1" fill="#C9A84C" opacity="0.2"/>
+        </svg>
+        <h3>Forros &amp; Gesso 3D</h3>
+        <p>Forros decorativos e painéis 3D que transformam tetos e paredes em obras de arte. Design exclusivo para ambientes únicos e sofisticados.</p>
+        <ul class="service-list">
+          <li>Gesso 3D</li>
+          <li>Forros modulares</li>
+          <li>Painéis decorativos</li>
+        </ul>
+      </div>
+
+      <!-- CARD ELÉTRICA -->
+      <div class="service-card reveal reveal-delay-3">
+        <svg class="service-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="33,5 18,32 28,32 27,55 42,28 32,28" fill="#C9A84C" opacity="0.8"/>
+          <circle cx="30" cy="30" r="22" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.3"/>
+          <circle cx="30" cy="30" r="15" stroke="#C9A84C" stroke-width="1" opacity="0.2"/>
+        </svg>
+        <h3>Instalações Elétricas</h3>
+        <p>Instalações elétricas completas com segurança e conformidade com as normas ABNT. Do projeto à execução, com garantia total.</p>
+        <ul class="service-list">
+          <li>Instalações residenciais</li>
+          <li>Quadros elétricos</li>
+          <li>Automação</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SOBRE ═══════════════════ -->
+<section id="sobre">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="sobre-visual reveal">
+        <div class="sobre-shape">
+          <div class="sobre-shape-inner">
+            <div class="big-num">3D</div>
+            <div class="sobre-shape-icon">
+              <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                <path d="M40 10 L70 25 L70 55 L40 70 L10 55 L10 25 Z" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.6"/>
+                <path d="M40 10 L40 70" stroke="#C9A84C" stroke-width="1" opacity="0.3"/>
+                <path d="M10 25 L70 55" stroke="#C9A84C" stroke-width="1" opacity="0.3"/>
+                <path d="M10 55 L70 25" stroke="#C9A84C" stroke-width="1" opacity="0.3"/>
+                <circle cx="40" cy="40" r="8" fill="#C9A84C" opacity="0.5"/>
+              </svg>
+            </div>
+          </div>
+          <div class="sobre-tag">8+ anos de experiência</div>
+        </div>
+      </div>
+      <div class="sobre-text">
+        <h2 class="section-title reveal" style="text-align:left;margin-bottom:1.5rem;">Quem Somos</h2>
+        <p class="reveal reveal-delay-1">A <strong style="color:var(--gold)">Decore Gesso 3D Revolution</strong> é uma empresa especializada em transformar ambientes através de soluções criativas e duráveis em drywall, gesso 3D e instalações elétricas.</p>
+        <p class="reveal reveal-delay-2" style="margin-top:1rem;">Com mais de 8 anos de atuação no mercado, entregamos projetos residenciais e comerciais com excelência técnica e compromisso com o prazo e a satisfação do cliente.</p>
+        <div class="sobre-values reveal reveal-delay-2">
+          <div class="value-item">Qualidade Premium</div>
+          <div class="value-item">Prazo Garantido</div>
+          <div class="value-item">Materiais Certificados</div>
+          <div class="value-item">Equipe Especializada</div>
+          <div class="value-item">Projetos Personalizados</div>
+          <div class="value-item">Atendimento 24h</div>
+        </div>
+        <div class="reveal reveal-delay-3">
+          <a href="https://wa.me/5575981321119?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20empresa." target="_blank" class="btn btn-primary">Falar com a Equipe</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ DIFERENCIAIS ═══════════════════ -->
+<section id="diferenciais" style="background:var(--navy-mid);">
+  <div class="container">
+    <div class="divider-line"></div>
+    <h2 class="section-title reveal">Por Que Nos Escolher?</h2>
+    <p class="section-subtitle reveal reveal-delay-1">Resultados que falam mais alto que promessas.</p>
+    <div class="stats-grid">
+      <div class="stat-card reveal reveal-delay-1">
+        <span class="stat-emoji">🏆</span>
+        <div class="stat-number" data-target="500">0</div>
+        <div class="stat-label">Projetos Realizados</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-2">
+        <span class="stat-emoji">⏱</span>
+        <div class="stat-number" data-target="8">0</div>
+        <div class="stat-label">Anos de Experiência</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-3">
+        <span class="stat-emoji">💎</span>
+        <div class="stat-number" data-target="100">0</div>
+        <div class="stat-label">% Satisfação</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-3">
+        <span class="stat-emoji">🔧</span>
+        <div class="stat-number" data-target="24">0</div>
+        <div class="stat-label">H Suporte</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PORTFOLIO ═══════════════════ -->
+<section id="portfolio" class="dot-bg">
+  <div class="container">
+    <h2 class="section-title reveal">Nosso Portfólio</h2>
+    <p class="section-subtitle reveal reveal-delay-1">Cada projeto é uma obra única. Confira alguns dos nossos trabalhos.</p>
+    <div class="portfolio-filters reveal reveal-delay-2">
+      <button class="filter-btn active" data-filter="todos">Todos</button>
+      <button class="filter-btn" data-filter="drywall">Drywall</button>
+      <button class="filter-btn" data-filter="forros">Forros 3D</button>
+      <button class="filter-btn" data-filter="eletrica">Elétrica</button>
+    </div>
+    <div class="portfolio-grid reveal reveal-delay-3" id="portfolio-grid">
+
+      <div class="portfolio-item" data-cat="forros" data-title="Forro 3D Sala de Estar" onclick="openLightbox(0)">
+        <svg class="portfolio-bg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#1A3560"/>
+              <stop offset="50%" style="stop-color:#0A1628"/>
+              <stop offset="100%" style="stop-color:#6B3FA0"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="400" fill="url(#g1)"/>
+          <path d="M0 200 Q100 100 200 200 Q300 300 400 200" stroke="#C9A84C" stroke-width="2" fill="none" opacity="0.4"/>
+          <path d="M0 150 Q100 50 200 150 Q300 250 400 150" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.25"/>
+          <path d="M0 250 Q100 150 200 250 Q300 350 400 250" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.25"/>
+          <circle cx="200" cy="200" r="80" stroke="#C9A84C" stroke-width="1" fill="none" opacity="0.15"/>
+          <circle cx="200" cy="200" r="40" fill="#C9A84C" opacity="0.08"/>
+          <text x="200" y="370" text-anchor="middle" fill="#C9A84C" font-size="11" opacity="0.5" font-family="Raleway,sans-serif">GESSO 3D</text>
+        </svg>
+        <svg class="lupa-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <div class="portfolio-overlay"><h4>Forro 3D Sala de Estar</h4><span>Forros 3D</span></div>
+      </div>
+
+      <div class="portfolio-item" data-cat="drywall" data-title="Divisória Drywall Office" onclick="openLightbox(1)">
+        <svg class="portfolio-bg" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#112244"/>
+              <stop offset="100%" style="stop-color:#1A3560"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="220" fill="url(#g2)"/>
+          <rect x="50" y="30" width="300" height="8" rx="2" fill="#C9A84C" opacity="0.3"/>
+          <rect x="50" y="56" width="300" height="8" rx="2" fill="#C9A84C" opacity="0.2"/>
+          <rect x="50" y="82" width="300" height="8" rx="2" fill="#C9A84C" opacity="0.15"/>
+          <rect x="50" y="108" width="300" height="8" rx="2" fill="#C9A84C" opacity="0.2"/>
+          <rect x="50" y="134" width="300" height="8" rx="2" fill="#C9A84C" opacity="0.3"/>
+          <line x1="140" y1="30" x2="140" y2="142" stroke="#C9A84C" stroke-width="1" opacity="0.2"/>
+          <line x1="260" y1="30" x2="260" y2="142" stroke="#C9A84C" stroke-width="1" opacity="0.2"/>
+          <text x="200" y="190" text-anchor="middle" fill="#C9A84C" font-size="11" opacity="0.5" font-family="Raleway,sans-serif">DRYWALL</text>
+        </svg>
+        <svg class="lupa-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <div class="portfolio-overlay"><h4>Divisória Office Premium</h4><span>Drywall</span></div>
+      </div>
+
+      <div class="portfolio-item" data-cat="eletrica" data-title="Painel Elétrico Residencial" onclick="openLightbox(2)">
+        <svg class="portfolio-bg" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g3" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#0A1628"/>
+              <stop offset="100%" style="stop-color:#2a1060"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="220" fill="url(#g3)"/>
+          <polygon points="210,30 175,110 205,110 200,190 235,110 205,110" fill="#C9A84C" opacity="0.6"/>
+          <circle cx="210" cy="110" r="60" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="5 5" fill="none" opacity="0.25"/>
+          <circle cx="210" cy="110" r="90" stroke="#C9A84C" stroke-width="1" stroke-dasharray="8 8" fill="none" opacity="0.12"/>
+          <text x="200" y="200" text-anchor="middle" fill="#C9A84C" font-size="11" opacity="0.5" font-family="Raleway,sans-serif">ELÉTRICA</text>
+        </svg>
+        <svg class="lupa-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <div class="portfolio-overlay"><h4>Painel Elétrico Residencial</h4><span>Elétrica</span></div>
+      </div>
+
+      <div class="portfolio-item" data-cat="forros" data-title="Rebaixo c/ LED Integrado" onclick="openLightbox(3)">
+        <svg class="portfolio-bg" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#1A3560"/>
+              <stop offset="60%" style="stop-color:#0d1f45"/>
+              <stop offset="100%" style="stop-color:#C9A84C" stop-opacity="0.3"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="220" fill="url(#g4)"/>
+          <ellipse cx="200" cy="110" rx="160" ry="60" stroke="#E2C06A" stroke-width="2" fill="none" opacity="0.4"/>
+          <ellipse cx="200" cy="110" rx="110" ry="40" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.3"/>
+          <ellipse cx="200" cy="110" rx="60" ry="20" fill="#C9A84C" opacity="0.12"/>
+          <circle cx="100" cy="80" r="4" fill="#E2C06A" opacity="0.6"/>
+          <circle cx="300" cy="80" r="4" fill="#E2C06A" opacity="0.6"/>
+          <circle cx="100" cy="140" r="4" fill="#E2C06A" opacity="0.6"/>
+          <circle cx="300" cy="140" r="4" fill="#E2C06A" opacity="0.6"/>
+          <text x="200" y="200" text-anchor="middle" fill="#C9A84C" font-size="11" opacity="0.5" font-family="Raleway,sans-serif">FORRO LED</text>
+        </svg>
+        <svg class="lupa-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <div class="portfolio-overlay"><h4>Rebaixo com LED Integrado</h4><span>Forros 3D</span></div>
+      </div>
+
+      <div class="portfolio-item" data-cat="drywall" data-title="Parede Drywall Residencial" onclick="openLightbox(4)">
+        <svg class="portfolio-bg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#112244"/>
+              <stop offset="100%" style="stop-color:#0A1628"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="400" fill="url(#g5)"/>
+          <rect x="20" y="20" width="170" height="170" rx="4" fill="#C9A84C" opacity="0.06"/>
+          <rect x="210" y="20" width="170" height="170" rx="4" fill="#C9A84C" opacity="0.04"/>
+          <rect x="20" y="210" width="170" height="170" rx="4" fill="#C9A84C" opacity="0.04"/>
+          <rect x="210" y="210" width="170" height="170" rx="4" fill="#C9A84C" opacity="0.08"/>
+          <line x1="200" y1="0" x2="200" y2="400" stroke="#C9A84C" stroke-width="1.5" opacity="0.15"/>
+          <line x1="0" y1="200" x2="400" y2="200" stroke="#C9A84C" stroke-width="1.5" opacity="0.15"/>
+          <text x="200" y="380" text-anchor="middle" fill="#C9A84C" font-size="11" opacity="0.5" font-family="Raleway,sans-serif">DRYWALL PREMIUM</text>
+        </svg>
+        <svg class="lupa-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <div class="portfolio-overlay"><h4>Parede Drywall Premium</h4><span>Drywall</span></div>
+      </div>
+
+      <div class="portfolio-item" data-cat="eletrica" data-title="Automação Residencial" onclick="openLightbox(5)">
+        <svg class="portfolio-bg" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g6" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#1a0a2e"/>
+              <stop offset="100%" style="stop-color:#112244"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="220" fill="url(#g6)"/>
+          <circle cx="200" cy="110" r="70" stroke="#6B3FA0" stroke-width="2" fill="none" opacity="0.5"/>
+          <circle cx="200" cy="110" r="50" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.4"/>
+          <circle cx="200" cy="110" r="30" fill="#6B3FA0" opacity="0.2"/>
+          <circle cx="200" cy="110" r="10" fill="#C9A84C" opacity="0.5"/>
+          <line x1="200" y1="40" x2="200" y2="70" stroke="#C9A84C" stroke-width="1.5" opacity="0.6"/>
+          <line x1="270" y1="110" x2="250" y2="110" stroke="#C9A84C" stroke-width="1.5" opacity="0.6"/>
+          <line x1="130" y1="110" x2="150" y2="110" stroke="#C9A84C" stroke-width="1.5" opacity="0.6"/>
+          <text x="200" y="200" text-anchor="middle" fill="#C9A84C" font-size="11" opacity="0.5" font-family="Raleway,sans-serif">AUTOMAÇÃO</text>
+        </svg>
+        <svg class="lupa-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <div class="portfolio-overlay"><h4>Automação Residencial</h4><span>Elétrica</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <div id="lightbox-content"></div>
+    <h3 id="lightbox-title"></h3>
+  </div>
+</div>
+
+<!-- ═══════════════════ DEPOIMENTOS ═══════════════════ -->
+<section id="depoimentos" style="background:var(--navy-mid);">
+  <div class="container">
+    <h2 class="section-title reveal">O Que Dizem Nossos Clientes</h2>
+    <p class="section-subtitle reveal reveal-delay-1">A satisfação de quem confiou no nosso trabalho é o nosso maior prêmio.</p>
+    <div class="testimonial-slider reveal reveal-delay-2">
+      <div class="testimonial-track" id="testimonial-track">
+
+        <div class="testimonial-card">
+          <div class="avatar">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="16" r="8" fill="#C9A84C" opacity="0.6"/><path d="M4 36c0-8.837 7.163-16 16-16s16 7.163 16 16" fill="#C9A84C" opacity="0.3"/></svg>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"O trabalho ficou incrível! O gesso 3D do meu apartamento superou todas as expectativas. Equipe pontual, profissional e com acabamento perfeito. Recomendo 100%!"</p>
+          <div class="testimonial-name">Ana Carla Souza</div>
+          <div class="testimonial-role">Arquiteta — Salvador, BA</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="avatar">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="16" r="8" fill="#6B3FA0" opacity="0.7"/><path d="M4 36c0-8.837 7.163-16 16-16s16 7.163 16 16" fill="#6B3FA0" opacity="0.4"/></svg>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Contratamos para o drywall e a parte elétrica do nosso escritório. Serviço de primeira, prazo cumprido e preço justo. Com certeza voltaremos a contratar!"</p>
+          <div class="testimonial-name">Roberto Menezes</div>
+          <div class="testimonial-role">Empresário — Feira de Santana, BA</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="avatar">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="16" r="8" fill="#E2C06A" opacity="0.7"/><path d="M4 36c0-8.837 7.163-16 16-16s16 7.163 16 16" fill="#E2C06A" opacity="0.3"/></svg>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Meu salão ficou outro com o forro rebaixado e os painéis 3D! Todo mundo pergunta quem fez. A Decore Gesso 3D Revolution transformou completamente meu negócio."</p>
+          <div class="testimonial-name">Fernanda Lima</div>
+          <div class="testimonial-role">Proprietária de Salão — Itabuna, BA</div>
+        </div>
+
+      </div>
+      <div class="slider-nav">
+        <button class="slider-btn" id="prev-btn" onclick="changeSlide(-1)">&#8592;</button>
+        <div class="slider-dots" id="slider-dots">
+          <div class="dot active" onclick="goToSlide(0)"></div>
+          <div class="dot" onclick="goToSlide(1)"></div>
+          <div class="dot" onclick="goToSlide(2)"></div>
+        </div>
+        <button class="slider-btn" id="next-btn" onclick="changeSlide(1)">&#8594;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CTA CENTRAL ═══════════════════ -->
+<section id="cta-section">
+  <div class="container" style="position:relative;z-index:1;text-align:center;">
+    <div class="reveal">
+      <div class="hero-badge" style="margin-bottom:1.5rem;">✦ Atendimento Rápido</div>
+      <h2 class="cta-title">Pronto para transformar<br>seu espaço?</h2>
+      <p class="cta-subtitle">Entre em contato agora e receba um orçamento gratuito. Nossa equipe responde em minutos!</p>
+      <a href="https://wa.me/5575981321119?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" class="btn btn-whatsapp btn-pulse" style="font-size:1rem;padding:18px 44px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.553 4.109 1.519 5.834L.057 23.998l6.335-1.44C8.02 23.52 9.975 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.857 0-3.585-.5-5.074-1.371l-.361-.214-3.761.857.884-3.672-.235-.376C2.516 15.546 2 13.836 2 12 2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Solicitar Orçamento Agora
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer id="contato">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Col 1: Logo + Desc -->
+      <div class="footer-col">
+        <div class="footer-logo-main">DECORE GESSO</div>
+        <span class="footer-logo-sub">3D Revolution</span>
+        <p class="footer-desc">Especialistas em Drywall, Forros 3D e Instalações Elétricas. Transformamos ambientes com qualidade, criatividade e compromisso.</p>
+        <div class="social-links">
+          <a href="https://instagram.com/decore3d_revolution" target="_blank" class="social-link" title="Instagram @decore3d_revolution">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://wa.me/5575981321119?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" class="social-link" title="WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.553 4.109 1.519 5.834L.057 23.998l6.335-1.44C8.02 23.52 9.975 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.857 0-3.585-.5-5.074-1.371l-.361-.214-3.761.857.884-3.672-.235-.376C2.516 15.546 2 13.836 2 12 2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Links -->
+      <div class="footer-col">
+        <h4>Links Rápidos</h4>
+        <ul class="footer-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#sobre">Sobre Nós</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+        <div style="margin-top:2rem;">
+          <h4>Instagram</h4>
+          <div class="insta-feed">
+            <div class="insta-post"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="#1A3560"/><path d="M10 30 Q20 10 30 30 Q40 50 50 30" stroke="#C9A84C" stroke-width="2" fill="none" opacity="0.7"/></svg></div>
+            <div class="insta-post"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="#2a1060"/><polygon points="30,10 18,40 30,34 42,40" fill="#C9A84C" opacity="0.6"/></svg></div>
+            <div class="insta-post"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="#112244"/><rect x="10" y="15" width="40" height="6" rx="1" fill="#C9A84C" opacity="0.4"/><rect x="10" y="27" width="40" height="6" rx="1" fill="#C9A84C" opacity="0.3"/><rect x="10" y="39" width="40" height="6" rx="1" fill="#C9A84C" opacity="0.4"/></svg></div>
+            <div class="insta-post"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="#1A3560"/><ellipse cx="30" cy="30" rx="20" ry="12" stroke="#C9A84C" stroke-width="2" fill="none" opacity="0.5"/><circle cx="30" cy="30" r="5" fill="#C9A84C" opacity="0.6"/></svg></div>
+            <div class="insta-post"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="#0A1628"/><circle cx="30" cy="30" r="18" stroke="#6B3FA0" stroke-width="2" fill="none" opacity="0.6"/><circle cx="30" cy="30" r="8" fill="#C9A84C" opacity="0.4"/></svg></div>
+            <div class="insta-post"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="#112244"/><path d="M10 50 L30 10 L50 50" stroke="#C9A84C" stroke-width="2" fill="none" opacity="0.5"/><line x1="18" y1="35" x2="42" y2="35" stroke="#C9A84C" stroke-width="1.5" opacity="0.4"/></svg></div>
+          </div>
+          <a href="https://instagram.com/decore3d_revolution" target="_blank" class="btn btn-secondary" style="margin-top:1rem;padding:10px 20px;font-size:0.75rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            @decore3d_revolution
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 3: Contato -->
+      <div class="footer-col">
+        <h4>Fale Conosco</h4>
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.62 19.79 19.79 0 01.99 1a2 2 0 012-2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 6.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14v2.92z"/></svg>
+          <div><a href="https://wa.me/5575981321119" target="_blank">(75) 98132-1119</a></div>
+        </div>
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <div><a href="https://instagram.com/decore3d_revolution" target="_blank">@decore3d_revolution</a></div>
+        </div>
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><p>Bahia, Brasil</p></div>
+        </div>
+        <div style="margin-top:2rem;">
+          <h4>Horário de Atendimento</h4>
+          <p style="font-size:0.88rem;opacity:0.7;line-height:1.9;">
+            Segunda a Sexta: 8h às 18h<br>
+            Sábado: 8h às 13h<br>
+            <span style="color:var(--gold);font-weight:600;">WhatsApp: 24 horas</span>
+          </p>
+        </div>
+        <a href="https://wa.me/5575981321119?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" class="btn btn-whatsapp" style="margin-top:1.5rem;width:100%;justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.553 4.109 1.519 5.834L.057 23.998l6.335-1.44C8.02 23.52 9.975 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.857 0-3.585-.5-5.074-1.371l-.361-.214-3.761.857.884-3.672-.235-.376C2.516 15.546 2 13.836 2 12 2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Solicitar Orçamento
+        </a>
+      </div>
+
+    </div>
+  </div>
+  <div class="footer-divider"></div>
+  <div class="footer-bottom">
+    <p>© 2025 Decore Gesso 3D Revolution. Todos os direitos reservados.</p>
+    <a href="https://instagram.com/decore3d_revolution" target="_blank">@decore3d_revolution</a>
+  </div>
+</footer>
+
+<!-- ═══════════════════ WHATSAPP FLOAT ═══════════════════ -->
+<a href="https://wa.me/5575981321119?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" class="whatsapp-float" title="Fale conosco no WhatsApp">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.553 4.109 1.519 5.834L.057 23.998l6.335-1.44C8.02 23.52 9.975 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.857 0-3.585-.5-5.074-1.371l-.361-.214-3.761.857.884-3.672-.235-.376C2.516 15.546 2 13.836 2 12 2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  <span class="wa-label">Fale Conosco</span>
+</a>
+
+<script>
+  // ═══════════════════════════════════════════════
+  // PARTICLES GENERATOR
+  // ═══════════════════════════════════════════════
+  (function() {
+    const container = document.getElementById('particles');
+    const count = 25;
+    for (let i = 0; i < count; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const size = Math.random() * 3 + 1;
+      p.style.cssText = `
+        width:${size}px; height:${size}px;
+        left:${Math.random() * 100}%;
+        animation-duration:${Math.random() * 15 + 10}s;
+        animation-delay:${Math.random() * 12}s;
+        opacity:${Math.random() * 0.5 + 0.1};
+      `;
+      container.appendChild(p);
+    }
+  })();
+
+  // ═══════════════════════════════════════════════
+  // NAVBAR SCROLL
+  // ═══════════════════════════════════════════════
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // ═══════════════════════════════════════════════
+  // HAMBURGER MENU
+  // ═══════════════════════════════════════════════
+  const hamburger = document.getElementById('hamburger');
+  const navMenu   = document.getElementById('nav-menu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navMenu.classList.toggle('open');
+  });
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    navMenu.classList.remove('open');
+  }
+
+  // ═══════════════════════════════════════════════
+  // SCROLL REVEAL (IntersectionObserver)
+  // ═══════════════════════════════════════════════
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // ═══════════════════════════════════════════════
+  // COUNTER ANIMATION
+  // ═══════════════════════════════════════════════
+  const counters = document.querySelectorAll('.stat-number[data-target]');
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseInt(el.dataset.target);
+      const suffix = el.nextElementSibling ? '' : '';
+      let start = 0;
+      const step = target / 60;
+      const timer = setInterval(() => {
+        start += step;
+        if (start >= target) { start = target; clearInterval(timer); }
+        el.textContent = Math.floor(start) + (target === 100 ? '%' : (target === 8 ? '' : '+'));
+      }, 25);
+      counterObserver.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => counterObserver.observe(c));
+
+  // ═══════════════════════════════════════════════
+  // PORTFOLIO FILTER
+  // ═══════════════════════════════════════════════
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.portfolio-item').forEach(item => {
+        const show = filter === 'todos' || item.dataset.cat === filter;
+        item.style.opacity = show ? '1' : '0.2';
+        item.style.pointerEvents = show ? 'auto' : 'none';
+        item.style.transition = 'opacity 0.4s ease';
+      });
+    });
+  });
+
+  // ═══════════════════════════════════════════════
+  // LIGHTBOX
+  // ═══════════════════════════════════════════════
+  const portfolioData = [
+    { title: 'Forro 3D Sala de Estar', cat: 'Forros 3D', gradient: 'linear-gradient(135deg, #1A3560, #0A1628, #6B3FA0)' },
+    { title: 'Divisória Office Premium', cat: 'Drywall', gradient: 'linear-gradient(135deg, #112244, #1A3560)' },
+    { title: 'Painel Elétrico Residencial', cat: 'Elétrica', gradient: 'linear-gradient(135deg, #0A1628, #2a1060)' },
+    { title: 'Rebaixo com LED Integrado', cat: 'Forros 3D', gradient: 'linear-gradient(135deg, #1A3560, #0d1f45, rgba(201,168,76,0.3))' },
+    { title: 'Parede Drywall Premium', cat: 'Drywall', gradient: 'linear-gradient(135deg, #112244, #0A1628)' },
+    { title: 'Automação Residencial', cat: 'Elétrica', gradient: 'linear-gradient(135deg, #1a0a2e, #112244)' },
+  ];
+  const lightbox = document.getElementById('lightbox');
+  function openLightbox(idx) {
+    const d = portfolioData[idx];
+    document.getElementById('lightbox-content').style.cssText = `background:${d.gradient};border-radius:12px;display:flex;align-items:center;justify-content:center;`;
+    document.getElementById('lightbox-content').innerHTML = `<div style="text-align:center;padding:2rem;"><div style="font-family:'Playfair Display',serif;font-size:3rem;color:#C9A84C;opacity:0.4;">3D</div><div style="font-family:'Raleway',sans-serif;font-weight:600;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:#C9A84C;margin-top:1rem;">${d.cat}</div></div>`;
+    document.getElementById('lightbox-title').textContent = d.title;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  // ═══════════════════════════════════════════════
+  // TESTIMONIALS SLIDER
+  // ═══════════════════════════════════════════════
+  let currentSlide = 0;
+  const totalSlides = 3;
+  const track = document.getElementById('testimonial-track');
+  const dots = document.querySelectorAll('.dot');
+
+  function updateSlider() {
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+  }
+  function changeSlide(dir) {
+    currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
+    updateSlider();
+  }
+  function goToSlide(n) {
+    currentSlide = n;
+    updateSlider();
+  }
+  // Auto-play
+  setInterval(() => changeSlide(1), 5500);
+</script>
+</body>
+</html>
